@@ -34,7 +34,7 @@ class TasksController < ApplicationController
       task = Task.find(params[:id])
       task.delete
       render json: task.to_json(
-          :except  => [:created_at, :updated_at] , :message => "Task destroy, my master"
+          :except  => [:created_at, :updated_at]
         )
     else
       render json: "El Elemento no existe"
