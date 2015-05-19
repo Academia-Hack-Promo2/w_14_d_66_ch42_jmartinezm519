@@ -41,6 +41,6 @@ class TasksController < ApplicationController
   private
   
   def permit
-     params.permit(:t_title, :date, :status, :category_id)
+     params.permit(:title, :date, :status, :category_id)
   end
 end

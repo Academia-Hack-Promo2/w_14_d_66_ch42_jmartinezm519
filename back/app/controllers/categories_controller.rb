@@ -35,7 +35,7 @@ class CategoriesController < ApplicationController
   private
   
     def permit
-      params.permit(:c_title)
+      params.permit(:title)
     end
   
 end
