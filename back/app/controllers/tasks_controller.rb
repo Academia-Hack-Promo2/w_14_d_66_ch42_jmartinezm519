@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-	def all
+	def index
     tasks = Task.all
     render json:tasks.to_json(
           :except  => [:created_at, :updated_at]

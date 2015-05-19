@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-	def all
+	def index
     categories = Category.all
     render json: categories.to_json(
       :except  => [:created_at, :updated_at]
