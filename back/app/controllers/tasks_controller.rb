@@ -5,7 +5,7 @@ class TasksController < ApplicationController
           :except  => [:created_at, :updated_at]
         )
   end
-  
+
   def create
   	task = Task.new(permit)
     if task.valid?
@@ -17,7 +17,7 @@ class TasksController < ApplicationController
       render json: task.errors
     end
   end
-  
+
   def update
     if Task.exists?(params[:id])
       task = Task.update(params[:id],permit)
@@ -29,20 +29,20 @@ class TasksController < ApplicationController
     end
   end
 
-  def destroy 
+  def destroy
     if Task.exists?(params[:id])
       task = Task.find(params[:id])
       task.delete
       render json: task.to_json(
-          :except  => [:created_at, :updated_at]
+          :except  => [:created_at, :updated_at] , :message => "Task destroy, my master"
         )
     else
       render json: "El Elemento no existe"
     end
   end
-  
+
   private
-  
+
   def permit
      params.permit(:title, :date, :status, :category_id)
   end

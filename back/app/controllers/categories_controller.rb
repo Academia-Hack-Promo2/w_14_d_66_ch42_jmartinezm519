@@ -33,14 +33,14 @@ class CategoriesController < ApplicationController
     if Category.exists?(params[:id])
       category = Category.find(params[:id])
       category.delete
-      render json: category
+      render json: category , :message => "Task destroy, my master"
     else
       render json: "El elemento no existe"
     end
   end
 
   def TasksCategories
-    
+
    if Category.exists?(params[:id])
       categorieTask = Category.find(params[:id])
       render json: categorieTask, :except => [:created_at, :updated_at, :category_id],
