@@ -33,11 +33,6 @@ class TasksController < ApplicationController
     end
   end
   
-  def categoriesTasks
-    tasks = Task.category(params[:id])
-    render json: tasks
-  end
-
   private
   
   def permit
