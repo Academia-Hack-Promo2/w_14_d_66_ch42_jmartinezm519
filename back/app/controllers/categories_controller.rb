@@ -1,34 +1,42 @@
 class CategoriesController < ApplicationController
 	def all
-    render json: Category.all
+    categories = Category.all
+    render json: categories.to_json(
+
+          :except  => [:created_at, :updated_at]
+        )
   end
   
   def create
   	category = Category.new(permit)
     if category.valid?
         category.save
-        render json: category
+        render json: category.to_json(
+          :except  => [:created_at, :updated_at]
+        )
     else
         render json: category.errors
     end
   end
   
   def update
-    if Category.exists?(permit)
+    if Category.exists?(params[:id])
       category = Category.update(params[:id],permit)
-      render json: category
+      render json: category.to_json(
+          :except  => [:created_at, :updated_at]
+        )
     else
-      render json: category.errors.messages
+      render json: "El elemeneto no existe"
     end
   end
 
   def destroy
-    if Category.exists?(permit)
-      category = Category.find(permit)
+    if Category.exists?(params[:id])
+      category = Category.find(params[:id])
       category.delete
-      render json: category.to_json
+      render json: category
     else
-      render json: category.errors.messages
+      render json: "El elemeneto no existe"
     end
   end
   

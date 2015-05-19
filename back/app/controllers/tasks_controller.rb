@@ -14,22 +14,22 @@ class TasksController < ApplicationController
   end
   
   def update
-    if Task.exists?(params[:id].to_i)
+    if Task.exists?(params[:id])
       task = Task.update(params[:id],permit)
       render json: task
     else
-      render json: task.errors.messages
+      render json: "El Elemento no existe"
     end
   end
 
   def destroy
     
-    if Task.exists?((params[:id].to_i))
-      task = Task.find((params[:id].to_i))
+    if Task.exists?((params[:id])
+      task = Task.find((params[:id])
       task.delete
       render json: task.to_json
     else
-      render json: task.errors.messages
+      render json: "El Elemento no existe"
     end
   end
   
