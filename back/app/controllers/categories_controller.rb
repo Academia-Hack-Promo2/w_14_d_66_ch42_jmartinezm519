@@ -5,7 +5,7 @@ class CategoriesController < ApplicationController
       :except  => [:created_at, :updated_at]
       )
   end
-  
+
   def create
   	category = Category.new(permit)
     if category.valid?
@@ -17,7 +17,7 @@ class CategoriesController < ApplicationController
       render json: category.errors
     end
   end
-  
+
   def update
     if Category.exists?(params[:id])
       category = Category.update(params[:id],permit)
@@ -25,7 +25,7 @@ class CategoriesController < ApplicationController
         :except  => [:created_at, :updated_at]
         )
     else
-      render json: "El elemeneto no existe"
+      render json: "El elemento no existe"
     end
   end
 
@@ -35,7 +35,7 @@ class CategoriesController < ApplicationController
       category.delete
       render json: category
     else
-      render json: "El elemeneto no existe"
+      render json: "El elemento no existe"
     end
   end
 
@@ -53,11 +53,11 @@ class CategoriesController < ApplicationController
     render json: taskCategorys, :except => [:created_at, :updated_at, :category_id],
     :include => {:tasks => { :only =>[:id, :title, :date, :status]}}
   end
-  
+
   private
-  
+
   def permit
     params.permit(:title)
   end
-  
+
 end
