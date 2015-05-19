@@ -34,13 +34,14 @@ class CategoriesController < ApplicationController
 
   def TasksCategories
     categorieTask = Category.find(params[:id])
-    render json: {category: categorieTask, task: categorieTask.tasks}, :except => [:created_at, :updated_at, :category_id]
+    render json: categorieTask, :except => [:created_at, :updated_at, :category_id],
+    :include => {:tasks => { :except =>[:created_at, :updated_at, :category_id]}}
   end
 
   def AllTasksCategories
     taskCategorys = Category.includes(:tasks)
     render json: taskCategorys, :except => [:created_at, :updated_at, :category_id],
-    :include => {:tasks => { :only =>[:id, :title, :date, :status]}}
+    :include => {:tasks => { :except =>[:created_at, :updated_at, :category_id]}}
   end
   
   private
