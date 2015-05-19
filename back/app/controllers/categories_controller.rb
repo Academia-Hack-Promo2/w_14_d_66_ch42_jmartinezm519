@@ -2,20 +2,19 @@ class CategoriesController < ApplicationController
 	def all
     categories = Category.all
     render json: categories.to_json(
-
-          :except  => [:created_at, :updated_at]
-        )
+      :except  => [:created_at, :updated_at]
+      )
   end
   
   def create
   	category = Category.new(permit)
     if category.valid?
-        category.save
-        render json: category.to_json(
-          :except  => [:created_at, :updated_at]
+      category.save
+      render json: category.to_json(
+        :except  => [:created_at, :updated_at]
         )
     else
-        render json: category.errors
+      render json: category.errors
     end
   end
   
@@ -23,7 +22,7 @@ class CategoriesController < ApplicationController
     if Category.exists?(params[:id])
       category = Category.update(params[:id],permit)
       render json: category.to_json(
-          :except  => [:created_at, :updated_at]
+        :except  => [:created_at, :updated_at]
         )
     else
       render json: "El elemeneto no existe"
@@ -41,8 +40,12 @@ class CategoriesController < ApplicationController
   end
 
   def TasksCategories
-    categorieTask = Category.find(params[:id])
-    render json: {category: categorieTask, task: categorieTask.tasks}, :except => [:created_at, :updated_at, :category_id]
+    if Category.exists?(params[:id])
+      categorieTask = Category.find(params[:id])
+      render json: {category: categorieTask, task: categorieTask.tasks}, :except => [:created_at, :updated_at, :category_id]
+    else
+      render json: "No existe la categoria"
+    end
   end
 
   def AllTasksCategories
@@ -53,8 +56,8 @@ class CategoriesController < ApplicationController
   
   private
   
-    def permit
-      params.permit(:title)
-    end
+  def permit
+    params.permit(:title)
+  end
   
 end
