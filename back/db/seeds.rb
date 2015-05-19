@@ -5,26 +5,33 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-c1 = Category.new(title:'Personal')
-c1.save
+Category.create!([
+  {title: "Personal"},
+  {title: "Servicios"},
+  {title: "Academia"},
+  {title: "Viajes"},
+  {title: "Otros"}
+])
 
-c2 = Category.new(title:'Servicios')
-c2.save
-
-c3 = Category.new(title:'Academia')
-c3.save
-
-t1 = Task.new(title:'Tarea Hack',status:0,date:'2015-05-22',category_id: 3)
-t1.save
-
-t2 = Task.new(title:'Buscar Tarjeta de credito',status:0,date:'2015-05-23',category_id: 1)
-t2.save
-
-t3 = Task.new(title:'Buscar productos ya pagados',status:0,date:'2015-05-24',category_id: 1)
-t3.save
-
-t4 = Task.new(title:'Saldo tlf',status:1,date:'2015-05-15',category_id: 2)
-t4.save
-
-t5 = Task.new(title:'Pagar Internet',status:1,date:'2015-05-14',category_id: 2)
-t5.save
+Task.create!([
+  {title: "Comprar aceite para el carro", status:0, date: '2015-05-22', category_id: 1},
+  {title: "Buscar comida del perro", status:0, date: '2015-05-22', category_id: 1},
+  {title: "Hacer mercado", status:0, date: '2015-05-22', category_id: 1},
+  {title: "Arreglar laptop", status:0, date: '2015-05-22', category_id: 1},
+  {title: "Frances", status:0, date: '2015-05-22', category_id: 2},
+  {title: "Griego", status:0, date: '2015-05-22', category_id: 2},
+  {title: "Rusos", status:0, date: '2015-05-22', category_id: 2},
+  {title: "Hindu", status:0, date: '2015-05-22', category_id: 2},
+  {title: "Entregar todoApp", status:0, date: '2015-05-22', category_id: 3},
+  {title: "Leer mas sobre jbuilder", status:0, date: '2015-05-22', category_id: 3},
+  {title: "Practicar haciendo mas aplicacion en RoR", status:0, date: '2015-05-22', category_id: 3},
+  {title: "Pagar el mes", status:0, date: '2015-05-22', category_id: 3},
+  {title: "Comprar pasaje", status:0, date: '2015-05-22', category_id: 4},
+  {title: "Solicitar visa", status:0, date: '2015-05-22', category_id: 4},
+  {title: "Robar a Diosdado dolares", status:0, date: '2015-05-22', category_id: 4},
+  {title: "Quedarme en el otro pais", status:0, date: '2015-05-22', category_id: 4},
+  {title: "Llamar Hector", status:0, date: '2015-05-22', category_id: 5},
+  {title: "Llamar a Romer", status:0, date: '2015-05-22', category_id: 5},
+  {title: "Hacerle una broma a Abraham", status:0, date: '2015-05-22', category_id: 5},
+  {title: "Comer en AvilaBurguer", status:0, date: '2015-05-22', category_id: 5}
+])
