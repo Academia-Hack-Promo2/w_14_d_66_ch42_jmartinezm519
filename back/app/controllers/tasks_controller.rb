@@ -10,7 +10,7 @@ class TasksController < ApplicationController
       task.save
       render json: task, :except => [:title, :status, :date, :category_id, :created_at, :updated_at]
     else
-      render json: {"id"=> "null", "error"=> "Mensaje de error"}
+      render json: {"id":"null", "error":"Mensaje de error"}
     end
   end
 
@@ -19,7 +19,7 @@ class TasksController < ApplicationController
       task = Task.update(params[:id],permit)
       render json: task, :except => [:title, :status, :date, :category_id, :created_at, :updated_at]
     else
-      render json:  {"id"=> "null", "error"=> "Mensaje de error"}
+      render json:  {"id":"null", "error":"Mensaje de error"}
     end
   end
 
