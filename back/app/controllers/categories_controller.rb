@@ -40,7 +40,7 @@ class CategoriesController < ApplicationController
   end
 
   def tasks_categories
-   if Category.exists?(params[:id])
+    if Category.exists?(params[:id])
       category_task = Category.find(params[:id])
       render json: category_task, :except => [:created_at, :updated_at, :category_id],
       :include => {:tasks => { :except =>[:created_at, :updated_at, :category_id]}}

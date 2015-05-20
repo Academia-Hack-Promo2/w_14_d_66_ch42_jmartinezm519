@@ -25,6 +25,6 @@ module Back
             origins '*'
             resource '*', :headers => :any, :methods => [:get, :post]
         end
-    end
+     end
   end
 end
