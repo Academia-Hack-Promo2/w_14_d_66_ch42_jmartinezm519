@@ -25,7 +25,7 @@ class TasksController < ApplicationController
           :except  => [:created_at, :updated_at]
         )
     else
-      render json: "El Elemento no existe"
+      render json: "The task doesn't exist"
     end
   end
 
@@ -37,7 +37,7 @@ class TasksController < ApplicationController
           :except  => [:created_at, :updated_at]
         )
     else
-      render json: "El Elemento no existe"
+      render json: "The task doesn't exist"
     end
   end
 

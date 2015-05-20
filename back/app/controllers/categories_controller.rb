@@ -25,7 +25,7 @@ class CategoriesController < ApplicationController
         :except  => [:created_at, :updated_at]
         )
     else
-      render json: "El elemento no existe"
+      render json: "The category doesn't exist"
     end
   end
 
@@ -35,24 +35,23 @@ class CategoriesController < ApplicationController
       category.delete
       render json: category
     else
-      render json: "El elemento no existe"
+      render json: "The category doesn't exist"
     end
   end
 
   def tasks_categories
-
    if Category.exists?(params[:id])
-      categorieTask = Category.find(params[:id])
-      render json: categorieTask, :except => [:created_at, :updated_at, :category_id],
+      category_task = Category.find(params[:id])
+      render json: category_task, :except => [:created_at, :updated_at, :category_id],
       :include => {:tasks => { :except =>[:created_at, :updated_at, :category_id]}}
     else
-      render json: "No existe la categoria"
+      render json: "The category doesn't exist"
     end
   end
 
   def all_tasks_categories
-    taskCategorys = Category.includes(:tasks)
-    render json: taskCategorys, :except => [:created_at, :updated_at, :category_id],
+    task_categories = Category.includes(:tasks)
+    render json: task_categories, :except => [:created_at, :updated_at, :category_id],
     :include => {:tasks => { :except =>[:created_at, :updated_at, :category_id]}}
   end
 
