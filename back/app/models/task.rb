@@ -1,5 +1,5 @@
 class Task < ActiveRecord::Base
-  enum status: {"pendiente" => 0, "realizado" => 1}
+  enum status: {"Undone" => 0, "Done" => 1}
   validates :title, :date, presence: true
   validates :title, length: {minimum: 5, maximum: 50}
   validates :status, inclusion: {in: :status}
