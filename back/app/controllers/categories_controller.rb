@@ -44,9 +44,7 @@ class CategoriesController < ApplicationController
   end
 
   def all_tasks_categories
-		task_categories = Category.includes(:tasks)
-    render json: task_categories, :except => [:created_at, :updated_at, :category_id],
-    :include => {:tasks => { :except =>[:created_at, :updated_at, :category_id]}}
+		@categories = Category.includes(:tasks)
   end
 
   private
