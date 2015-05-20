@@ -7,7 +7,7 @@ class Category < ActiveRecord::Base
   	 tasks = Task.where('category_id = ?', self.id)
 
   	tasks.each do |task|
-  	 	task.category_id = 10
+  	 	task.category_id = 1
   	 	task.save
   	end
   end
