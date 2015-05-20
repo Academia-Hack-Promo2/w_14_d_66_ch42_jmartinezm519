@@ -4,7 +4,7 @@ class Category < ActiveRecord::Base
   before_destroy :save_tasks
 
   def save_tasks
-  	 tasks = Task.where('category_id = ?', self.id)
+  	tasks = Task.where('category_id = ?', self.id)
 
   	tasks.each do |task|
   	 	task.category_id = 1
