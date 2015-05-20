@@ -25,7 +25,7 @@ class CategoriesController < ApplicationController
   def destroy
     if Category.exists?(params[:id])
       category = Category.find(params[:id])
-      category.delete
+      category.destroy
       render json: category
     else
       render json: {"id":"null", "error":"La categoria no existe"}
