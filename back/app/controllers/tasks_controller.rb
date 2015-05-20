@@ -3,26 +3,23 @@ class TasksController < ApplicationController
     tasks = Task.all
     render json: tasks, :except => [:created_at, :updated_at]
   end
-	# Regresar el solo el id al crear el todo
-	# y al exister algun error regresar id null y mensaje de error.
+	
   def create
   	task = Task.new(permit)
     if task.valid?
       task.save
-      render json: task, :except => [:created_at, :updated_at]
+      render json: task, :except => [:title, :status, :date, :category_id, :created_at, :updated_at]
     else
-      render json: task.errors
+      render json: {"id"=> "null", "error"=> "Mensaje de error"}
     end
   end
 
-	#Leer el pivotal track para la respuesta correcta que debe regresar el json
-	# Agregar metodo solo para actualizar status
   def update
     if Task.exists?(params[:id])
       task = Task.update(params[:id],permit)
-      render json: task, :except => [:created_at, :updated_at]
+      render json: task, :except => [:title, :status, :date, :category_id, :created_at, :updated_at]
     else
-      render json: "The task doesn't exist"
+      render json:  {"id"=> "null", "error"=> "Mensaje de error"}
     end
   end
 
