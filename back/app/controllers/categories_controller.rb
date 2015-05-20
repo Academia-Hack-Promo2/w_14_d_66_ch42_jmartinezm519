@@ -33,6 +33,9 @@ class CategoriesController < ApplicationController
     end
   end
 
+	# Colocar en vez de title en la respuesta category para el nombre
+	# de las categorias.
+	
   def tasks_categories
     if Category.exists?(params[:id])
       category_task = Category.find(params[:id])
