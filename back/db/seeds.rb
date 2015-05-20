@@ -6,11 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Category.delete_all
-Task.delete_all
-
 Category.create!([
-  {title: "uncategorized"}
+  {title: "uncategorized"},
   {title: "Personal"},
   {title: "Servicios"},
   {title: "Academia"},
