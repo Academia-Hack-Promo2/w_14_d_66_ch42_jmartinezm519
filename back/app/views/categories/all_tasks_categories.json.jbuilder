@@ -7,6 +7,5 @@ json.array! @categories do |category|
     json.title task.title
     json.date task.date
     json.status task.status
-    json.category_id task.category_id
   end
 end
