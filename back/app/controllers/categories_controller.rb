@@ -1,8 +1,7 @@
 class CategoriesController < ApplicationController
 	def index
     @categories = Category.all
-     #render json: categories, :except => [:title, :created_at, :updated_at]
-    end
+  end
 
   def create
   	category = Category.new(permit)
