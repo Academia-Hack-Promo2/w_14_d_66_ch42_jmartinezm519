@@ -3,7 +3,7 @@ class TasksController < ApplicationController
     tasks = Task.all
     render json: tasks, :except => [:created_at, :updated_at]
   end
-	
+
   def create
   	task = Task.new(permit)
     if task.valid?
@@ -17,9 +17,13 @@ class TasksController < ApplicationController
   def update
     if Task.exists?(params[:id])
       task = Task.update(params[:id],permit)
-      render json: task, :except => [:title, :status, :date, :category_id, :created_at, :updated_at]
+			if task.valid?
+      	render json: task, :except => [:title, :status, :date, :category_id, :created_at, :updated_at]
+			else
+				render json:  {"id":"null", "error": task.errors.values[0]}
+			end
     else
-      render json:  {"id":"null", "error":"Mensaje de error"}
+      render json:  {"id":"null", "error":"La tarea no existe"}
     end
   end
 
