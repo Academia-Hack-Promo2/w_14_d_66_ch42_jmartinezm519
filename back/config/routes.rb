@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   get "/tasks" => "tasks#index"
   post "/tasks" => "tasks#create"
   put "/tasks/:id" => "tasks#update"
+  put "tasks/status/:id" => "tasks#status_update"
   delete "/tasks/:id" => "tasks#destroy"
 end

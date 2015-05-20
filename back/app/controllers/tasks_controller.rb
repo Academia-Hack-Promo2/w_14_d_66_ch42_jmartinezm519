@@ -37,9 +37,18 @@ class TasksController < ApplicationController
     end
   end
 
+	def status_update
+		if Task.exists?(params[:id])
+      task = Task.update(params[:id],permit)
+      render json: task, :except => [:created_at, :updated_at, :title, :status, :category_id, :date]
+    else
+      render json: {"id":null, "error":"La tarea no existe"}
+    end
+	end
+
   private
 
   def permit
-     params.permit(:title, :date, :status, :category_id)
+     params.permit(:title, :date, :status, :category_id, :id)
   end
 end
