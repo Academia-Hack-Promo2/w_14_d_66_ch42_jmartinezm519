@@ -1,18 +1,13 @@
 class CategoriesController < ApplicationController
-	def all
-    categories = Category.all
-    render json: categories.to_json(
-      :except  => [:created_at, :updated_at]
-      )
+	def index
+    @categories = Category.all
   end
 
   def create
   	category = Category.new(permit)
     if category.valid?
       category.save
-      render json: category.to_json(
-        :except  => [:created_at, :updated_at]
-        )
+      render json: category, :except => [:created_at, :updated_at]
     else
       render json: category.errors
     end
@@ -21,11 +16,9 @@ class CategoriesController < ApplicationController
   def update
     if Category.exists?(params[:id])
       category = Category.update(params[:id],permit)
-      render json: category.to_json(
-        :except  => [:created_at, :updated_at]
-        )
+      render json: category, :except => [:created_at, :updated_at]
     else
-      render json: "El elemento no existe"
+      render json: {"id":"null", "error":"La categoria no existe"}
     end
   end
 
@@ -35,25 +28,22 @@ class CategoriesController < ApplicationController
       category.destroy
       render json: category
     else
-      render json: "El elemento no existe"
+      render json: {"id":"null", "error":"La categoria no existe"}
     end
   end
 
-  def TasksCategories
-    
-   if Category.exists?(params[:id])
-      categorieTask = Category.find(params[:id])
-      render json: categorieTask, :except => [:created_at, :updated_at, :category_id],
+  def tasks_categories
+    if Category.exists?(params[:id])
+      category_task = Category.find(params[:id])
+      render json: category_task, :except => [:created_at, :updated_at, :category_id],
       :include => {:tasks => { :except =>[:created_at, :updated_at, :category_id]}}
     else
-      render json: "No existe la categoria"
+      render json: {"id":"null", "error":"La categoria no existe"}
     end
   end
 
-  def AllTasksCategories
-    taskCategorys = Category.includes(:tasks)
-    render json: taskCategorys, :except => [:created_at, :updated_at, :category_id],
-    :include => {:tasks => { :except =>[:created_at, :updated_at, :category_id]}}
+  def all_tasks_categories
+		@categories = Category.includes(:tasks)
   end
 
   private
