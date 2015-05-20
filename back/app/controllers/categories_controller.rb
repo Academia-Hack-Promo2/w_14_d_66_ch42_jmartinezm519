@@ -19,7 +19,7 @@ class CategoriesController < ApplicationController
       category = Category.update(params[:id],permit)
       render json: category, :except => [:created_at, :updated_at]
     else
-      render json: "The category doesn't exist"
+      render json: {"id":"null", "error":"La categoria no existe"}
     end
   end
 
@@ -29,7 +29,7 @@ class CategoriesController < ApplicationController
       category.delete
       render json: category
     else
-      render json: "The category doesn't exist"
+      render json: {"id":"null", "error":"La categoria no existe"}
     end
   end
 
@@ -39,7 +39,7 @@ class CategoriesController < ApplicationController
       render json: category_task, :except => [:created_at, :updated_at, :category_id],
       :include => {:tasks => { :except =>[:created_at, :updated_at, :category_id]}}
     else
-      render json: "The category doesn't exist"
+      render json: {"id":"null", "error":"La categoria no existe"}
     end
   end
 
