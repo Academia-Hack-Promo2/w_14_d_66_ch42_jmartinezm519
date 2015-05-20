@@ -1,14 +1,14 @@
 class TasksController < ApplicationController
 	def index
     tasks = Task.all
-    render json:tasks, :except  => [:created_at, :updated_at]
+    render json: tasks, :except => [:created_at, :updated_at]
   end
 
   def create
   	task = Task.new(permit)
     if task.valid?
       task.save
-      render json: task, :except  => [:created_at, :updated_at]
+      render json: task, :except => [:created_at, :updated_at]
     else
       render json: task.errors
     end
@@ -17,7 +17,7 @@ class TasksController < ApplicationController
   def update
     if Task.exists?(params[:id])
       task = Task.update(params[:id],permit)
-      render json: task, :except  => [:created_at, :updated_at]
+      render json: task, :except => [:created_at, :updated_at]
     else
       render json: "The task doesn't exist"
     end
@@ -27,7 +27,7 @@ class TasksController < ApplicationController
     if Task.exists?(params[:id])
       task = Task.find(params[:id])
       task.delete
-      render json: task,   :except  => [:created_at, :updated_at]
+      render json: task, :except => [:created_at, :updated_at]
     else
       render json: "The task doesn't exist"
     end
