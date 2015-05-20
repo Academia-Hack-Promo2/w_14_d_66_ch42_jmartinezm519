@@ -33,9 +33,6 @@ class CategoriesController < ApplicationController
     end
   end
 
-	# Colocar en vez de title en la respuesta category para el nombre
-	# de las categorias.
-	
   def tasks_categories
     if Category.exists?(params[:id])
       category_task = Category.find(params[:id])
@@ -47,7 +44,7 @@ class CategoriesController < ApplicationController
   end
 
   def all_tasks_categories
-    task_categories = Category.includes(:tasks)
+		task_categories = Category.includes(:tasks)
     render json: task_categories, :except => [:created_at, :updated_at, :category_id],
     :include => {:tasks => { :except =>[:created_at, :updated_at, :category_id]}}
   end
