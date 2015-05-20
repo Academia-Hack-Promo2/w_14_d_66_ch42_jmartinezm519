@@ -1,18 +1,14 @@
 class CategoriesController < ApplicationController
 	def index
     categories = Category.all
-    render json: categories.to_json(
-      :except  => [:created_at, :updated_at]
-      )
-  end
+    render json: categories, :except  => [:created_at, :updated_at]
+    end
 
   def create
   	category = Category.new(permit)
     if category.valid?
       category.save
-      render json: category.to_json(
-        :except  => [:created_at, :updated_at]
-        )
+      render json: category, :except  => [:created_at, :updated_at]
     else
       render json: category.errors
     end
@@ -21,9 +17,7 @@ class CategoriesController < ApplicationController
   def update
     if Category.exists?(params[:id])
       category = Category.update(params[:id],permit)
-      render json: category.to_json(
-        :except  => [:created_at, :updated_at]
-        )
+      render json: category, :except  => [:created_at, :updated_at]
     else
       render json: "The category doesn't exist"
     end
