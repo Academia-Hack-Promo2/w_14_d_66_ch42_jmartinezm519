@@ -1,1 +1,4 @@
-console.log('\'Allo \'Allo!');
+$('.prueba').click(function(event){
+	container = $(this)
+	categories = new Categories(container)
+})

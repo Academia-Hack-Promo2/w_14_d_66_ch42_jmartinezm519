@@ -1,6 +1,6 @@
 var Categories = (function(){
 
-	var Categories = function(data,container){
+	var Categories = function(container,data){
 		this.container = container;
 
 		if(data){
@@ -11,11 +11,11 @@ var Categories = (function(){
 		}
 	};
 
-	Categories.prototype.init = function(data) {
+	Categories.prototype.init = function(data,container) {
 		var category;
 		this.categories = [];
-		for (var i = 0;i < data.length; i++) {
-			category = new Category(data[i]);
+		for (var i = 0;i < data.length; i++) {			
+			category = new Category(data[i],null);
 			this.categories.push(category);
 		}
 	};
@@ -27,7 +27,7 @@ var Categories = (function(){
 			url: 'http://localhost:3000/categories',
 			success: function(data){
 				self.init(data);
-				self.draw;
+				self.draw();
 			},
 			error: function(){
 				console.log('Error solicitud')
@@ -36,10 +36,12 @@ var Categories = (function(){
 	};
 
 	Categories.prototype.draw = function() {
+		console.log(this.container);
 		this.container.html('');
-		for(var i = 0; i < this.categories.lengt; i++) {
-			this.container.append(categories[i].draw());
-			console.log(Categories[i])
+		console.log('aca');
+		
+		for(var i = 0; i < this.categories.length; i++) {			
+			this.container.append(this.categories[i].draw());
 		}
 		return this.container;
 	};
