@@ -6,7 +6,7 @@ var Category = (function(){
 			url: 'http://localhost:3000/categories',
 			success: function(data) {
 				for (var i = 1; i < data.length; i++) {
-					$('#categories').prepend('<option value="' + data[i].id + '">' + data[i].category + '</option>');
+					$('#categories').append('<option value="' + data[i].id + '">' + data[i].category + '</option>');
 				}
 			},
 			error: function(data) {
