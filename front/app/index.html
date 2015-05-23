@@ -20,24 +20,103 @@
 </head>
 
 <body>
-  <div class="row">
-    <div class="input-field col m6">
-      <select id="categories">
-        <option value="Nueva">Nueva</option>
-      </select>
-      <label>categories</label>
-    </div>
-    <div class="categories col m6">exrctvygbuhnji</div>
+  <div class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper color teal light-2">
+        <a href="#!" class="brand-logo">Agile.IO</a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="#link_to_tasks"><i class="mdi-action-toc"></i></a></li>
+          <li><a href="#link_to_categories"><i class="mdi-action-view-module"></i></a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>  
+
+  <div class="slider">
+    <ul class="slides">
+      <li>
+        <img src="images/spring.jpg">
+        <div class="caption left-align">
+          <h3>Prepara cada spring</h3>
+        </div>
+      </li>
+      <li>
+        <img src="images/team.jpg" height="1308" width="2000">
+        <div class="caption left-align">
+          <h3>Planifica con tu equipo</h3>
+        </div>
+      </li>
+      <li>
+        <img src="images/code.jpg">
+        <div class="caption left-align">
+          <h3>Empieza trabajar</h3>
+        </div>
+      </li>
+    </ul>
   </div>
 
+  <div class="task">
+    <a id="link_to_tasks"></a>
+    <div class="row">
+      <div class="input-field col m6">
+      </div>
+    </div>
+  </div>
 
-  <h2 class="center-align">Tasks</h2>
+  <h2 class="center-align">Tareas</h2>
   <div class="container">
     <div class="row">
       <div class="tasks">
 
       </div>
     </div>
+  </div>
+
+  <div class="categories">
+    <a id="link_to_categories"></a> 
+
+    <div class="container">
+      <div class="col s12 m2 color blue-grey darken-2">
+        <h2 class="center-align z-depth-3 white-text">Categorias</h2>
+      </div>
+     
+      <div class="row" id="cat-cont">
+     
+        <div class="col s12 m4">
+          <div class="card teal light-2">
+            <div class="card-content white-text">
+              <span class="card-title">Sin conexion</span>
+            </div>
+            <div class="card-action">
+            </div>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="card teal light-2">
+            <div class="card-content white-text">
+              <span class="card-title">Sin conexion</span>
+            </div>
+            <div class="card-action">
+            </div>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="card teal light-2">
+            <div class="card-content white-text">
+              <span class="card-title">Sin conexion</span>
+            </div>
+            <div class="card-action">
+            </div>
+          </div>
+        </div>
+
+      </div>   
+
+    </div>  
+
+
   </div>
 
   <!-- build:js(.) scripts/vendor.js -->
@@ -76,6 +155,8 @@
   </script>
   <script src="bower_components/materialize/dist/js/materialize.js"></script>
   <script src="bower_components/materialize/js/sideNav.js"></script>
+  <script src="bower_components/materialize/js/slider.js"></script>
+
   <!-- endbuild -->
 
 </body>

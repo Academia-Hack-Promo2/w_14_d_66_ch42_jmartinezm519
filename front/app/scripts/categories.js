@@ -15,7 +15,7 @@ var Categories = (function(){
 		var category;
 		this.categories = [];
 		for (var i = 0;i < data.length; i++) {			
-			category = new Category(data[i],null);
+			category = new Category(data[i],container);
 			this.categories.push(category);
 		}
 	};
@@ -38,8 +38,6 @@ var Categories = (function(){
 	Categories.prototype.draw = function() {
 		console.log(this.container);
 		this.container.html('');
-		console.log('aca');
-		
 		for(var i = 0; i < this.categories.length; i++) {			
 			this.container.append(this.categories[i].draw());
 		}

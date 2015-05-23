@@ -1,20 +1,5 @@
 var Category = (function(){
 
-	(function() {
-		$.ajax({
-			type: 'get',
-			url: 'http://localhost:3000/categories',
-			success: function(data) {
-				for (var i = 1; i < data.length; i++) {
-					$('#categories').append('<option value="' + data[i].id + '">' + data[i].category + '</option>');
-				}
-			},
-			error: function(data) {
-				console.log(data);
-			}
-		});
-	})();
-
 	var Category =  function(data, container){
 		this.container = container;
 
@@ -45,11 +30,14 @@ var Category = (function(){
 	// };
 
 	Category.prototype.draw = function(){		
-		return $('<div/>',{class:"col s12 m6 l3 category",id:this.id}).append(
-			$('<div/>',{class:"row"}).append(
-				$("<div/>",{class:"col m12"}).html(
-					this.name
-					)
+		return $('<div/>',{class:"col s12 m4"}).append(
+			$('<div/>',{class:"card teal light-2"}).append(
+				$('<div/>',{class:"card-content white-text"}).append(
+					$('<span/>',{class:'card-title'}).html(
+						this.name
+						)
+					),
+					$('<div/>',{class:'card-action'})
 				)
 			)	
 	};
