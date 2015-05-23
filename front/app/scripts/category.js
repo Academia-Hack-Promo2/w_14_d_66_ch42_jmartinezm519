@@ -45,7 +45,13 @@ var Category = (function(){
 	// };
 
 	Category.prototype.draw = function(){		
-		return $('<option/>').html(this.name);
+		return $('<div/>',{class:"col s12 m6 l3 category",id:this.id}).append(
+			$('<div/>',{class:"row"}).append(
+				$("<div/>",{class:"col m12"}).html(
+					this.name
+					)
+				)
+			)	
 	};
 
 	Category.prototype.appendToContainer = function () {
