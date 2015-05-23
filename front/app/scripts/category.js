@@ -1,16 +1,31 @@
 var Category = (function(){
 
+	(function() {
+		$.ajax({
+			type: 'get',
+			url: 'http://localhost:3000/categories',
+			success: function(data) {
+				for (var i = 1; i < data.length; i++) {
+					$('#categories').prepend('<option value="' + data[i].id + '">' + data[i].category + '</option>');
+				}
+			},
+			error: function(data) {
+				console.log(data);
+			}
+		});
+	})();
+
 	var Category =  function(data, container){
-	this.container = container;
+		this.container = container;
 
-	if(data){
-		this.init(data);
-	}else{
-		this.getData();
+		if(data){
+			this.init(data);
+		}else{
+			this.getData();
+		}
 	}
-}
 
-Category.prototype.init = function(data){
+	Category.prototype.init = function(data){
 	//console.log(this.container)
 	this.name = data.category;
 	this.id = data.id;
@@ -30,7 +45,7 @@ Category.prototype.init = function(data){
 	// };
 
 	Category.prototype.draw = function(){		
-		return $('<div/>').html(this.name);
+		return $('<option/>').html(this.name);
 	};
 
 	Category.prototype.appendToContainer = function () {
@@ -87,6 +102,5 @@ Category.prototype.init = function(data){
 			}
 		});
 	}
-
 	return Category;
 })();
