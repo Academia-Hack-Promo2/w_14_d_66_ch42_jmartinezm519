@@ -7,12 +7,12 @@ var Tasks = (function(){
 
 	Tasks.prototype.init = function(data){
 		var task;
-		this.tasks = []
+		this.tasks = [];
 
 		for (var i = 0; i < data.length; i++) {
 			task = new Task(null, data[i])
-			this.tasks.push(task)
-		};
+			this.tasks.push(task);
+		}
 	}
 
 	Tasks.prototype.getData = function(){
@@ -31,7 +31,7 @@ var Tasks = (function(){
 			}
 
 		})
-	}
+	};
 
 		Tasks.prototype.dataReady = function(){
 		$('.collapsible').collapsible({

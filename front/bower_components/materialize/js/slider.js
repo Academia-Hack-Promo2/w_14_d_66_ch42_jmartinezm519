@@ -3,7 +3,7 @@
   $.fn.slider = function (options) {
     var defaults = {
       indicators: true,
-      height: 600,
+      height: 400,
       transition: 500,
       interval: 6000
     }

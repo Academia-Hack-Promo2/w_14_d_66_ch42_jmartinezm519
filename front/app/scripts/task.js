@@ -45,6 +45,37 @@ var Task = (function(){
 			console.log('no found container')
 		}
 	}
+
+
+	Category.prototype.deleteTask = function(){
+		$.ajax({
+			type: 'delete',
+			url: 'http://localhost:3000/task'+this.id,
+			success: function(data){
+				console.log("Tarea eliminada"+data.id);
+				tasks = new Task();
+			},
+			error: function(){
+				console.log('Ha ocurrido un error al eliminar la tarea.')
+			}
+		});
+	}
+
+	Category.prototype.updateTaskStatus = function(){
+		$.ajax({
+			type: 'patch',
+			url: 'http://localhost:3000//tasks/'+this.id+'/status',
+			success: function(data){
+				console.log("Status actualizado"+data.id);
+				tasks = new Task();
+			},
+			error: function(){
+				console.log('Ha ocurrido un error al actualizar el status.')
+			}
+		});
+	}
+	
+
 	return Task;
 })();
 
