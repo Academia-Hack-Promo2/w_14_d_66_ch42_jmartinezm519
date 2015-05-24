@@ -33,3 +33,13 @@ body {
 .slider-titles {
   font-family: 'Paytone One', sans-serif;
 }
+
+.btn{
+    padding: 0 1rem;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+.btn-edit{
+  margin-left: 165px;
+}

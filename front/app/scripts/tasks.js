@@ -23,6 +23,7 @@ var Tasks = (function(){
 			success: function(data){
 				self.init(data);
 				self.draw();
+				self.dataReady();
 			},
 
 			error: function(data){
@@ -32,9 +33,21 @@ var Tasks = (function(){
 		})
 	}
 
+		Tasks.prototype.dataReady = function(){
+		$('.collapsible').collapsible({
+	      accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+	    });
+	}
+
 	Tasks.prototype.draw = function(){
 		for (var i = 0; i < this.tasks.length; i++) {
-			this.container.append(this.tasks[i].draw())
+
+		if (i % 2 == 0) {
+			var row = $('<div>', {class: 'row'});
+		};
+
+			row.append(this.tasks[i].draw());
+			this.container.append(row);
 		};
 	}
 

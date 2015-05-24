@@ -15,9 +15,27 @@ var Task = (function(){
 	};
 
 	Task.prototype.draw = function(){
-		return $('<div/>', {class: 'col s4'}).append(
-				$('<p>').html(this.title)
-			)
+
+		return 	$('<div>', {class: 'col s6'}).append(
+					$('<ul>', {class: 'collapsible'}).attr('data-collapsible','accordion').append(
+						$('<li>').append(
+							$('<div>', {class: 'collapsible-header'}).html(this.title).append(
+								$('<i>', {class: 'mdi-social-whatshot'})
+							)
+						).append(
+						$('<div/>', {class: 'collapsible-body'}).append($('<p>').html('Fecha de culminacion:'+ ' ' + this.date
+						 + '<br>' + 'Status:' + ' ' + this.status)).append(
+							$('<a>', {class: 'waves-effect waves-light btn btn-edit'}).html('Editar').append(
+								$('<i>', {class: 'mdi-editor-border-color left'})
+							)
+						).append(
+							$('<a>', {class: 'waves-effect waves-light btn'}).html('Borrar').append(
+								$('<i>', {class: 'mdi-action-delete left'})
+							)
+						)
+					)
+				)
+		)
 	}
 
 	Task.prototype.appendTo = function(){
