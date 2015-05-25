@@ -57,7 +57,7 @@ var Category = (function(){
 						)
 					),
 				$('<div/>').append(
-					$('<a>', {class: 'waves-effect btn btn-e right modal-trigger',id: this.id,href:'#modal1'}).html('Editar').append(
+					$('<a>', {class: 'waves-effect btn modal-trigger btn-e right',id: this.id,href: '#editar'}).html('Editar').append(
 						$('<i>', {class: 'mdi-editor-border-color left'})
 						),
 					$('<a>',{class: 'waves-effect btn btn-b right',id: this.id,onclick:'Materialize.toast("Categoria eliminada", 3000)'}).html('Borrar').append(
@@ -92,17 +92,18 @@ var Category = (function(){
 	}
 
 	Category.prototype.updateCategory = function(){
-		var category = {
+		var title = {
 			"title": this.name
 		}
+		console.log(category)
 		$.ajax({
-			type: 'pacth',
-			url: 'http://localhost:3000/categories'+this.id,
-			data: 'category',
+			type: 'patch',
+			// data: {_method: 'pacth'},
+			url: 'http://localhost:3000/categories/'+this.id,
+			data: title,
 			success: function(data){
-				console.log("actualizada"+data.id);
-				categories = new Category();
-				eventclick();
+				var container = $('#cat-cont');
+				categories = new Categories(container);
 			},
 			error: function(){
 				console.log('error al actualizar')
@@ -116,7 +117,7 @@ var Category = (function(){
 			data: {_method: 'delete'},
 			url: 'http://localhost:3000/categories/'+this.id,
 			success: function(data){
-				var container = $('#cat-cont')
+				var container = $('#cat-cont');
 				categories = new Categories(container);
 			},
 			error: function(){
