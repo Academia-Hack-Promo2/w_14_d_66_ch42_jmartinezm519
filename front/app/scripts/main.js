@@ -1,8 +1,7 @@
 $(document).ready(function() {
-	$('select').material_select();
 	$('.slider').slider({full_width: true});
-	$('.slider').slider({indicators: false});
-	$('.slider').slider({height: 600});
+	$('select').material_select();
+	$(".button-collapse").sideNav();
 
 	$(function(){
 		var task = $('.tasks');
