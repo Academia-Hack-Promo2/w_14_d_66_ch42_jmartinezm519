@@ -29,7 +29,7 @@ var Task = (function(){
 								$('<i>', {class: 'mdi-editor-border-color left'})
 							)
 						).append(
-							$('<a>', {class: 'waves-effect waves-light btn'}).html('Borrar').append(
+							$('<a>', {class: 'waves-effect waves-light btn btn-delete'}).html('Borrar').append(
 								$('<i>', {class: 'mdi-action-delete left'})
 							)
 						)

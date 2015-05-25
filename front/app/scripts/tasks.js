@@ -1,7 +1,9 @@
+"use strict";
+
 var Tasks = (function(){
 
 	var Tasks = function(container){
-		this.container = container
+		this.container = container;
 		this.getData();
 	}
 
@@ -10,7 +12,7 @@ var Tasks = (function(){
 		this.tasks = [];
 
 		for (var i = 0; i < data.length; i++) {
-			task = new Task(null, data[i])
+			task = new Task(null, data[i]);
 			this.tasks.push(task);
 		}
 	}
@@ -24,6 +26,7 @@ var Tasks = (function(){
 				self.init(data);
 				self.draw();
 				self.dataReady();
+				self.buttonReady();
 			},
 
 			error: function(data){
@@ -39,10 +42,17 @@ var Tasks = (function(){
 	    });
 	}
 
+	Tasks.prototype.buttonReady = function(){
+		$('.btn-delete').click(function(){
+			
+		})
+
+	}
+
 	Tasks.prototype.draw = function(){
 		for (var i = 0; i < this.tasks.length; i++) {
 
-		if (i % 2 == 0) {
+		if (i % 2 == 0) {"use strict";
 			var row = $('<div>', {class: 'row'});
 		};
 
