@@ -24,7 +24,7 @@ var Categories = (function(){
 		var self = this;
 		$.ajax({
 			type: 'get',
-			url: 'http://localhost:3000/categories',
+			url: 'http://localhost:3000/categories_all_tasks',
 			success: function(data){
 				self.init(data);
 				self.draw();
@@ -37,6 +37,7 @@ var Categories = (function(){
 
 	Categories.prototype.draw = function() {
 		this.container.html('');
+		Events = new Events();
 		for(var i = 0; i < this.categories.length; i++) {			
 			if (i == 0){
 				this.container.append(this.categories[i].draw());				
@@ -45,11 +46,14 @@ var Categories = (function(){
 			}
 		}
 		this.container.append(this.draw_nueva);
-		act_modales();
-		click_eliminar();
-		click_editar();
-		click_nueva();
-		click_enviar();
+		
+		Events = new Events();
+		Events.act_modales();
+		Events.click_editar();
+		Events.click_nueva();
+		Events.click_enviar();
+		Events.click_eliminar();
+
 		return this.container;
 	};
 
@@ -72,36 +76,3 @@ var Categories = (function(){
 
 	return Categories;
 })();
-
-function act_modales() {
-	return 	$('.modal-trigger').leanModal();
-}
-
-function click_editar(){
-	return ($('.btn-e').click(function(){
-		$('.enviar').attr('id', $(this).attr('id') )
-	}));
-}
-
-function click_eliminar() {
-	return ($(".btn-b").click(function(){
-		var id = {"id":$(this).attr('id'),"category": ""};
-		category = new Category(id);
-		category.delete_category();
-	}));
-}
-
-function click_nueva() {
-	return ($('.btn-n').click(function(){
-		console.log("nueva");
-	}));
-}
-
-function click_enviar() {
-	return ($('.enviar').click(function(){
-		var data = {"id":$(this).attr('id'),"category": $('#new_name').val()}
-		category = new Category(data)
-		category.updateCategory()
-	}));
-}
-
