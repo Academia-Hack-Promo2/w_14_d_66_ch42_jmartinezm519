@@ -74,6 +74,27 @@ var Task = (function(){
 			}
 		});
 	}
+
+	Task.prototype.postData = function(){
+		var data = {
+			'title': $('#text_title').val(),
+			'data': $('#date_task').val()
+			'category_id': $('#categories').val()
+		};
+
+		$.ajax({
+      	type: 'post',
+      	url: 'http://localhost:3000/tasks',
+      	data: new_task,
+      	success: function(data) {
+        console.log(data);
+        console.log("Tarea Nueva")
+      }, 
+      error: function(data) {
+        console.log(data);
+      }
+   	 });
+};
 	
 
 	return Task;
@@ -117,4 +138,3 @@ var Task = (function(){
 // })
 
 // task.save();
-

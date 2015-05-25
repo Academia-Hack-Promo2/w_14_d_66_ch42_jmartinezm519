@@ -48,6 +48,7 @@ var Category = (function(){
 			)	
 	};
 
+
 	Category.prototype.draw1 = function(){		
 		return $('<div/>',{class:"col s12 m6"}).append(
 			$('<div/>',{class:"card white"}).append(
@@ -67,6 +68,14 @@ var Category = (function(){
 				)
 			)	
 	};	
+
+	Category.prototype.ulSelect = function (){
+		return $('<li>').html($('<span/>').html(this.name))
+	}
+
+	Category.prototype.selectCategory = function () {
+		return $('<option value="' + this.id + '">' + this.name + '</option>');
+	};
 
 	Category.prototype.appendToContainer = function () {
 		$(this.container).append(this.draw());
