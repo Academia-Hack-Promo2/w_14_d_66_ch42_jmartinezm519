@@ -36,13 +36,58 @@ var Categories = (function(){
 	};
 
 	Categories.prototype.draw = function() {
-		console.log(this.container);
 		this.container.html('');
 		for(var i = 0; i < this.categories.length; i++) {			
-			this.container.append(this.categories[i].draw());
+			if (i == 0){
+				this.container.append(this.categories[i].draw());				
+			}else{
+				this.container.append(this.categories[i].draw1());
+			}
 		}
+		this.container.append(this.draw_nueva);
+		click_editar();
+		click_eliminar();
+		click_nueva();
 		return this.container;
 	};
 
+	Categories.prototype.draw_nueva = function() {	
+		return $('<div/>',{class:"col s12 m6"}).append(
+			$('<div/>',{class:"card white"}).append(
+				$('<div/>',{class:"card-content"}).append(
+					$('<span/>',{class:'card-title black-text'}).html(
+						'Nueva Categoria'
+						)
+					),
+				$('<div/>').append(
+					$('<a>', {class: 'waves-effect btn btn-n right'}).html('Crear').append(
+						$('<i>', {class: 'mdi-editor-border-color left'})
+						)
+					)
+				)
+			)
+	}
+
 	return Categories;
 })();
+
+function click_editar() {
+	return ($(".btn-e").click(function(){
+		console.log("editar");
+	}));
+}
+
+function click_eliminar() {
+	return ($(".btn-b").click(function(){
+		var id = {"id":$(this).attr('id'),"category": ""};
+		category = new Category(id);
+		category.delete_category();
+	}));
+}
+
+function click_nueva() {
+	return ($(".btn-n").click(function(){
+		console.log("nueva");
+	}));
+}
+

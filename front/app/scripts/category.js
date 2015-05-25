@@ -11,10 +11,9 @@ var Category = (function(){
 	}
 
 	Category.prototype.init = function(data){
-	//console.log(this.container)
-	this.name = data.category;
-	this.id = data.id;
-};	
+		this.name = data.category;
+		this.id = data.id;
+	};	
 
 	// Category.prototype.getData = function(){
 	// 	$.ajax({
@@ -30,17 +29,44 @@ var Category = (function(){
 	// };
 
 	Category.prototype.draw = function(){		
-		return $('<div/>',{class:"col s12 m4"}).append(
-			$('<div/>',{class:"card teal light-2"}).append(
-				$('<div/>',{class:"card-content white-text"}).append(
-					$('<span/>',{class:'card-title'}).html(
+		return $('<div/>',{class:"col s12 m6"}).append(
+			$('<div/>',{class:"card white"}).append(
+				$('<div/>',{class:"card-content"}).append(
+					$('<span/>',{class:'card-title black-text'}).html(
 						this.name
 						)
 					),
-					$('<div/>',{class:'card-action'})
+				$('<div/>').append(
+					$('<a>', {class: 'waves-effect btn disabled btn-e right',id: this.id}).html('Editar').append(
+						$('<i>', {class: 'mdi-editor-border-color left'})
+						),
+					$('<a>',{class: 'waves-effect btn disabled btn-b right',id: this.id}).html('Borrar').append(
+						$('<i>',{class: 'mdi-action-delete left'})
+						)
+					)
 				)
 			)	
 	};
+
+	Category.prototype.draw1 = function(){		
+		return $('<div/>',{class:"col s12 m6"}).append(
+			$('<div/>',{class:"card white"}).append(
+				$('<div/>',{class:"card-content"}).append(
+					$('<span/>',{class:'card-title black-text'}).html(
+						this.name
+						)
+					),
+				$('<div/>').append(
+					$('<a>', {class: 'waves-effect btn btn-e right',id: this.id}).html('Editar').append(
+						$('<i>', {class: 'mdi-editor-border-color left'})
+						),
+					$('<a>',{class: 'waves-effect btn btn-b right',id: this.id}).html('Borrar').append(
+						$('<i>',{class: 'mdi-action-delete left'})
+						)
+					)
+				)
+			)	
+	};	
 
 	Category.prototype.appendToContainer = function () {
 		$(this.container).append(this.draw());
@@ -76,6 +102,7 @@ var Category = (function(){
 			success: function(data){
 				console.log("actualizada"+data.id);
 				categories = new Category();
+				eventclick();
 			},
 			error: function(){
 				console.log('error al actualizar')
@@ -83,18 +110,19 @@ var Category = (function(){
 		});
 	}
 
-	Category.prototype.deleteCategory = function(){
+	Category.prototype.delete_category = function(){
 		$.ajax({
 			type: 'delete',
-			url: 'http://localhost:3000/categories'+this.id,
+			url: 'http://localhost:3000/categories/'+this.id,
 			success: function(data){
 				console.log("elinimada"+data.id);
-				categories = new Category();
+				categories = new Categories();
 			},
 			error: function(){
 				console.log('error al eliminar')
 			}
 		});
 	}
+
 	return Category;
 })();

@@ -1,6 +1,5 @@
 $(document).ready(function() {
 	$('select').material_select();
-
 	$('.slider').slider({full_width: true});
 
 	$(function(){
@@ -12,7 +11,8 @@ $(document).ready(function() {
 		var container = $('#cat-cont')
 		var categories = new Categories(container)
 	})
-})	;
+
+});
 
 
 
