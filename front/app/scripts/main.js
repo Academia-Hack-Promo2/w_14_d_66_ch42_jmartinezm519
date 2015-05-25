@@ -3,6 +3,7 @@ $(document).ready(function() {
 	$('.slider').slider({full_width: true});
 	$('.slider').slider({indicators: false});
 	$('.slider').slider({height: 600});
+	$('.modal-trigger').leanModal();
 
 	$(function(){
 		var task = $('.tasks');
