@@ -33,7 +33,7 @@ var Category = (function(){
 			$('<div/>',{class:"card white"}).append(
 				$('<div/>',{class:"card-content"}).append(
 					$('<span/>',{class:'card-title black-text'}).html(
-						this.name
+							'Sin Categoria'
 						)
 					),
 				$('<div/>').append(
