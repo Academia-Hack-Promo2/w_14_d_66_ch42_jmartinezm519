@@ -35,11 +35,29 @@ body {
 }
 
 .btn{
-    padding: 0 1rem;
-    margin-bottom: 10px;
-    margin-left: 10px;
+  padding: 0 1rem;
+  margin-bottom: 10px;
+  margin-left: 10px;
 }
 
 .btn-edit{
   margin-left: 165px;
 }
+
+.btn-e{
+  padding: 0px 10px;
+  margin: 0px 15px 10px 10px;
+}
+
+.btn-b{
+  padding: 0px 10px;
+}
+
+.btn-n{
+  padding: 0px 10px;
+  margin: 0px 15px 10px 10px;
+}
+
+
+
+
