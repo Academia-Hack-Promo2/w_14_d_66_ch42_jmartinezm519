@@ -1,6 +1,8 @@
 var Categories = (function(){
 
-	var Categories = function(container,data){
+	var Categories = function(ul_select, container_select, container, data){
+		this.ul_select = ul_select;
+		this.container_select = container_select;
 		this.container = container;
 
 		if(data){
@@ -39,11 +41,11 @@ var Categories = (function(){
 		this.container.html('');
 		Events = new Events();
 		for(var i = 0; i < this.categories.length; i++) {			
-			if (i == 0){
-				this.container.append(this.categories[i].draw());				
-			}else{
-				this.container.append(this.categories[i].draw1());
-			}
+
+		this.ul_select.append(this.categories[i].ulSelect());
+		this.container.append(this.categories[i].draw1());
+		this.container_select.append(this.categories[i].selectCategory());
+		
 		}
 		this.container.append(this.draw_nueva);
 		
