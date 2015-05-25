@@ -78,7 +78,7 @@ var Task = (function(){
 	Task.prototype.postData = function(){
 		var data = {
 			'title': $('#text_title').val(),
-			'data': $('#date_task').val()
+			'data': $('#date_task').val(),
 			'category_id': $('#categories').val()
 		};
 
