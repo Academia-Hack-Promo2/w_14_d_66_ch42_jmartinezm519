@@ -4,6 +4,7 @@ $(document).ready(function() {
 	$('select').material_select();
 	$(".button-collapse").sideNav();
 
+
 	$(function(){
 		var task = $('.tasks');
 		var tasks = new Tasks(task);
