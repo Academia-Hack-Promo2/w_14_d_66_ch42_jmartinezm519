@@ -37,10 +37,10 @@ var Category = (function(){
 						)
 					),
 				$('<div/>').append(
-					$('<a>', {class: 'waves-effect btn disabled btn-e right',id: this.id}).html('Editar').append(
+					$('<a>', {class: 'waves-effect btn disabled btn-d right',id: this.id}).html('Editar').append(
 						$('<i>', {class: 'mdi-editor-border-color left'})
 						),
-					$('<a>',{class: 'waves-effect btn disabled btn-b right',id: this.id}).html('Borrar').append(
+					$('<a>',{class: 'waves-effect btn disabled btn-d right',id: this.id}).html('Borrar').append(
 						$('<i>',{class: 'mdi-action-delete left'})
 						)
 					)
@@ -57,10 +57,10 @@ var Category = (function(){
 						)
 					),
 				$('<div/>').append(
-					$('<a>', {class: 'waves-effect btn btn-e right',id: this.id}).html('Editar').append(
+					$('<a>', {class: 'waves-effect btn btn-e right modal-trigger',id: this.id,href:'#modal1'}).html('Editar').append(
 						$('<i>', {class: 'mdi-editor-border-color left'})
 						),
-					$('<a>',{class: 'waves-effect btn btn-b right',id: this.id}).html('Borrar').append(
+					$('<a>',{class: 'waves-effect btn btn-b right',id: this.id,onclick:'Materialize.toast("Categoria eliminada", 3000)'}).html('Borrar').append(
 						$('<i>',{class: 'mdi-action-delete left'})
 						)
 					)
@@ -112,11 +112,12 @@ var Category = (function(){
 
 	Category.prototype.delete_category = function(){
 		$.ajax({
-			type: 'delete',
+			type: 'post',
+			data: {_method: 'delete'},
 			url: 'http://localhost:3000/categories/'+this.id,
 			success: function(data){
-				console.log("elinimada"+data.id);
-				categories = new Categories();
+				var container = $('#cat-cont')
+				categories = new Categories(container);
 			},
 			error: function(){
 				console.log('error al eliminar')

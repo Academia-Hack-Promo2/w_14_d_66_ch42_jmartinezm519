@@ -1,5 +1,6 @@
 $(document).ready(function() {
 	$('.slider').slider({full_width: true});
+	$('.modal-trigger').leanModal();
 	$('select').material_select();
 	$(".button-collapse").sideNav();
 
