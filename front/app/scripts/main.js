@@ -2,6 +2,8 @@ $(document).ready(function() {
 	$('select').material_select();
 
 	$('.slider').slider({full_width: true});
+	$('.slider').slider({indicators: false});
+	$('.slider').slider({height: 600});
 
 	$(function(){
 		var task = $('.tasks');

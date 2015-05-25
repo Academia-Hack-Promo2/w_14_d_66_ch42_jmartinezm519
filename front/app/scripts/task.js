@@ -47,7 +47,7 @@ var Task = (function(){
 	}
 
 
-	Category.prototype.deleteTask = function(){
+	Task.prototype.deleteTask = function(){
 		$.ajax({
 			type: 'delete',
 			url: 'http://localhost:3000/task'+this.id,
@@ -61,7 +61,7 @@ var Task = (function(){
 		});
 	}
 
-	Category.prototype.updateTaskStatus = function(){
+	Task.prototype.updateTaskStatus = function(){
 		$.ajax({
 			type: 'patch',
 			url: 'http://localhost:3000//tasks/'+this.id+'/status',
