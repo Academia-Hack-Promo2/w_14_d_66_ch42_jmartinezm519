@@ -20,9 +20,9 @@ $(document).ready(function() {
 	})
 
 	function newCategory(){
-		data ={
+		var data ={
 			"title": $('#nueva').val()
-		}
+		};
 		$.ajax({
 			type: 'post',
 			data: data,
@@ -31,10 +31,10 @@ $(document).ready(function() {
 				var categories = new Categories(ul_select, container_select, container)
 			},
 			error:function(response){
-				console.log(response)
+				console.log(response);
 			}
-		})
-	};
+		});
+	}
 	
 });
 

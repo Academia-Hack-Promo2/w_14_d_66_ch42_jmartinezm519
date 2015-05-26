@@ -1,0 +1,12 @@
+@media (max-width: 768px) {
+.title{
+  position: relative;
+  bottom: 45px;
+  font-size: 15px;
+}
+nav .nav-wrapper .edit-icon{
+  display: block;
+  margin-top: -10px;
+  font-size: 110px;
+}
+}
