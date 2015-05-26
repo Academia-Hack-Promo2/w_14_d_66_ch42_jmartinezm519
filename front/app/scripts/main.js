@@ -5,15 +5,19 @@ $(document).ready(function() {
 	$(".button-collapse").sideNav();
 
 
+
 	$(function(){
 		var task = $('.tasks');
 		var tasks = new Tasks(task);
 	});
 
 	$(function(){
-		var container = $('#cat-cont');
-		var categories = new Categories(container);
-	});
+		// var ul_select = $('.dropdown-content.select-dropdown')
+		// var container_select = $('#categories')
+		var container = $('#cat-cont')
+		var header = $('#header')
+		var categories = new Categories(container,header)
+	})
 
 	function newCategory(){
 		var data ={

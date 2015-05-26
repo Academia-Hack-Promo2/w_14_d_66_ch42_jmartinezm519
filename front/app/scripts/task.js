@@ -16,7 +16,7 @@ var Task = (function(){
 
 	Task.prototype.draw = function(){
 
-		return 	$('<div>', {class: 'col s6'}).append(
+		return 	$('<div>', {class: 'col m6 s12'}).append(
 					$('<ul>', {class: 'collapsible'}).attr('data-collapsible','accordion').append(
 						$('<li>').append(
 							$('<div>', {class: 'collapsible-header'}).html(this.title).append(
@@ -74,28 +74,6 @@ var Task = (function(){
 			}
 		});
 	}
-
-	Task.prototype.postData = function(){
-		var data = {
-			'title': $('#text_title').val(),
-			'data': $('#date_task').val(),
-			'category_id': $('#categories').val()
-		};
-
-		$.ajax({
-      	type: 'post',
-      	url: 'http://localhost:3000/tasks',
-      	data: new_task,
-      	success: function(data) {
-        console.log(data);
-        console.log("Tarea Nueva")
-      }, 
-      error: function(data) {
-        console.log(data);
-      }
-   	 });
-};
-	
 
 	return Task;
 })();

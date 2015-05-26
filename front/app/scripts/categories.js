@@ -1,7 +1,8 @@
 var Categories = (function(){
 
-	var Categories = function(container,data){
-		this.container = container
+	var Categories = function(container,header,data){
+		this.container = container;
+		this.header = header;
 		this.funciones = [];
 
 		this.funciones.push(function() {
@@ -55,13 +56,39 @@ var Categories = (function(){
 			url: 'http://localhost:3000/categories_all_tasks',
 			success: function(data){
 				self.init(data);
+				self.draw();
 				self.drawCategories();
+				self.drawTasks();
 			},
 			error: function(){
 				console.log('Error solicitud')
 			}
 		})
 	};
+
+	Categories.prototype.draw = function(){
+		this.header.html('')
+		for (var i = 0; i < this.categories.length; i++) {
+			this.header.append(this.categories[i].drawCategoryTasks());
+		};
+	}
+
+	Categories.prototype.drawTasks = function(){
+		for (var i = 0; i < this.categories.length; i++) {
+			content = $('#category'+this.categories[i].id);
+			for (var j = 0; j < this.categories[i].tasks.length ; j++) {
+				task = this.categories[i].tasks[j];	
+				content.append(
+					$('<div/>').html(
+						task.title
+						)
+					)
+			};
+		};
+		$('.collapsible').collapsible({
+      accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+    });
+	}
 
 	Categories.prototype.drawCategories = function() {
 		this.container.html('');
