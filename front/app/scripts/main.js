@@ -16,6 +16,24 @@ $(document).ready(function() {
 		var container = $('#cat-cont')
 		var categories = new Categories(container)
 	})
+
+	function newCategory(){
+		data ={
+			"title": $('#nueva').val()
+		}
+		$.ajax({
+			type: 'post',
+			data: data,
+			url: 'http://localhost:3000/categories',
+			success: function(){
+				var categories = new Categories(ul_select, container_select, container)
+			},
+			error:function(response){
+				console.log(response)
+			}
+		})
+	};
+	
 });
 
 

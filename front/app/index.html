@@ -36,7 +36,23 @@
       <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat enviar">Enviar</a>
     </div>
   </div>
-  
+
+  <div id="nueva" class="modal bottom-sheet">
+    <div class="modal-content">
+      <h4>Nueva Categoria</h4>
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="new_name" type="text" class="validate">
+          <label for="last_name">Nombre de la categoria</label>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" onclick='newCategory()'>Enviar</a>
+    </div>
+  </div>
+
   <div class="navbar-fixed">
     <nav>
       <div class="nav-wrapper color teal light-2">
@@ -71,6 +87,26 @@
       </li>
     </ul>
   </div>
+  <div class="container">
+    <div class="row">
+    <div class="col m12">
+        <ul class="collapsible" data-collapsible="accordion">
+          <li>
+            <div class="collapsible-header"><i class="mdi-image-filter-drama"></i>First</div>
+            <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+          </li>
+          <li>
+            <div class="collapsible-header"><i class="mdi-maps-place"></i>Second</div>
+            <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+          </li>
+          <li>
+            <div class="collapsible-header"><i class="mdi-social-whatshot"></i>Third</div>
+            <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
   <div class="task">
     <a id="link_to_tasks"></a>
@@ -83,14 +119,14 @@
 
   <div class="container">
     <a class="waves-effect waves-light btn modal-trigger" href="#modal2">Modal</a>
-      <h2 class="center-align">Tareas</h2>
+    <h2 class="center-align">Tareas</h2>
     <div class="row">
       <div class="tasks">
       </div>
     </div>
   </div>
 
-      <!-- Modal Trigger -->
+  <!-- Modal Trigger -->
 
 
   <!-- Modal Structure -->
@@ -103,15 +139,15 @@
             <input id="input_text" class="text_title" type="text" length="50">
             <label for="input_text">Titulo</label>
           </div>
-            <div class="input-field col s4">
-    <select class="browser-default" id="categories">
-      <option value="" disabled selected>Seleccione su categoria</option>
-    </select>
-  </div>
           <div class="input-field col s4">
-              <input id="date_task" type="date" class="datepicker">
+            <select class="browser-default" id="categories">
+              <option value="" disabled selected>Seleccione su categoria</option>
+            </select>
           </div>
+          <div class="input-field col s4">
+            <input id="date_task" type="date" class="datepicker">
           </div>
+        </div>
       </form>
     </div>
         <div class="modal-footer">

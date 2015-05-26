@@ -19,7 +19,6 @@ var postData = (function(){
   }()); 
 
   $('.btn-save').click(function(){
-    alert($('.text_title').val())
     var dataTask = {
       "title": $('.text_title').val(),
       "date": $('#date_task').val(),
@@ -32,6 +31,7 @@ var postData = (function(){
         data: dataTask,
         success: function(data) {
         console.log(data);
+        console.log("Tarea guardada exitosamente, falta arreglar la maqueta")
       }, 
       error: function(data) {
         console.log(data);
