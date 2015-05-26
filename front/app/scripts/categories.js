@@ -1,7 +1,8 @@
 var Categories = (function(){
 
-	var Categories = function(container,data){
-		this.container = container
+	var Categories = function(container,header,data){
+		this.container = container;
+		this.header = header;
 		this.funciones = [];
 
 		this.funciones.push(function() {
@@ -56,6 +57,7 @@ var Categories = (function(){
 			success: function(data){
 				self.init(data);
 				self.drawCategories();
+				self.draw();
 			},
 			error: function(){
 				console.log('Error solicitud')
@@ -63,41 +65,51 @@ var Categories = (function(){
 		})
 	};
 
-	Categories.prototype.drawCategories = function() {
-		this.container.html('');
-		for(var i = 0; i < this.categories.length; i++) {			
-			if (i == 0){
-				this.container.append(this.categories[i].draw());
-			}else{		
-				this.container.append(this.categories[i].appendToContainer());
-			}
+	Categories.prototype.draw = function(){
+		for (var i = 0; i < this.categories.length; i++) {
+			this.header.append(this.categories[i].drawCategoryTasks())
+			//for (var i 0; i < this.)
+		};
+		$('.collapsible').collapsible({
+      accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+   });
+}
+
+Categories.prototype.drawCategories = function() {
+	this.container.html('');
+	for(var i = 0; i < this.categories.length; i++) {			
+		if (i == 0){
+			this.container.append(this.categories[i].draw());
+		}else{		
+			this.container.append(this.categories[i].appendToContainer());
 		}
-		this.container.append(this.draw_nueva);
+	}
+	this.container.append(this.draw_nueva);
 
-		this.funciones[1]();
-		this.funciones[2]();
-		this.funciones[3]();
-		this.funciones[0]();
+	this.funciones[1]();
+	this.funciones[2]();
+	this.funciones[3]();
+	this.funciones[0]();
 
-		return this.container;
-	};
+	return this.container;
+};
 
-	Categories.prototype.draw_nueva = function() {	
-		return $('<div/>',{class:"col s12 m6"}).append(
-			$('<div/>',{class:"card white"}).append(
-				$('<div/>',{class:"card-content"}).append(
-					$('<span/>',{class:'card-title black-text'}).html(
-						'Nueva Categoria'
-						)
-					),
-				$('<div/>').append(
-					$('<a>', {class: 'waves-effect btn btn-n right modal-trigger',href:'#nueva'}).html('Crear').append(
-						$('<i>', {class: 'mdi-editor-border-color left'})
-						)
+Categories.prototype.draw_nueva = function() {	
+	return $('<div/>',{class:"col s12 m6"}).append(
+		$('<div/>',{class:"card white"}).append(
+			$('<div/>',{class:"card-content"}).append(
+				$('<span/>',{class:'card-title black-text'}).html(
+					'Nueva Categoria'
+					)
+				),
+			$('<div/>').append(
+				$('<a>', {class: 'waves-effect btn btn-n right modal-trigger',href:'#nueva'}).html('Crear').append(
+					$('<i>', {class: 'mdi-editor-border-color left'})
 					)
 				)
 			)
-	}
+		)
+}
 
-	return Categories;
+return Categories;
 })();

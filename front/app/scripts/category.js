@@ -6,8 +6,10 @@ var Category = (function(){
 	}
 
 	Category.prototype.init = function(data){
+		this.tasks = data.tasks;
 		this.name = data.category;
 		this.id = data.id;
+		console.log(this.tasks);
 	};	
 
 	Category.prototype.draw = function(){		
@@ -55,28 +57,27 @@ var Category = (function(){
 		return cuadro
 	};	
 
+	Category.prototype.drawTasks = function(){
+		return	"hola"
+	}
+
+	Category.prototype.drawCategoryTasks = function(){
+		container = ( $('<li/>').append(
+			$('<div/>',{class:'collapsible-header'}).append(
+				$('<i/>',{class:'mdi-image-filter-drama'}),
+				 ' ' + this.name
+				),
+			$('<div>',{class:'collapsible-body',id:'category'+this.id}).append(
+				this.drawTasks()
+				)
+			)
+		)
+		return container
+	}
+
 	Category.prototype.appendToContainer = function () {
 		return this.draw1();
 	};
-
-	// Category.prototype.newCategory = function(){
-	// 	var self = this;
-	// 	var category = {
-	// 		"title": this.name
-	// 	};
-	// 	$.ajax({
-	// 		type: 'post',
-	// 		url: 'http://localhost:3000/categories',
-	// 		data: 'category',
-	// 		success: function(data){
-	// 			console.log("creada"+data.id);
-	// 			categories = new Category();
-	// 		},
-	// 		error: function(){
-	// 			console.log('error al crear')
-	// 		}
-	// 	});
-	// }
 
 	Category.prototype.updateCategory = function(){
 		var title = {
@@ -89,10 +90,11 @@ var Category = (function(){
 			data: title,
 			success: function(data){
 				var container = $('#cat-cont');
-				categories = new Categories(container);
+				var header = $('#header');
+				categories = new Categories(container,header);
 			},
 			error: function(){
-				console.log('error al actualizar')
+				console.log('error al actualizar');
 			}
 		});
 	}
@@ -103,8 +105,9 @@ var Category = (function(){
 			data: {_method: 'delete'},
 			url: 'http://localhost:3000/categories/'+this.id,
 			success: function(data){
+				var header = $('#header');
 				var container = $('#cat-cont');
-				categories = new Categories(container);
+				categories = new Categories(container,header);
 			},
 			error: function(){
 				console.log('error al eliminar')

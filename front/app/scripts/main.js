@@ -5,6 +5,7 @@ $(document).ready(function() {
 	$(".button-collapse").sideNav();
 
 
+
 	$(function(){
 		var task = $('.tasks');
 		var tasks = new Tasks(task);
@@ -12,7 +13,8 @@ $(document).ready(function() {
 
 	$(function(){
 		var container = $('#cat-cont')
-		var categories = new Categories(container)
+		var header = $('#header')
+		var categories = new Categories(container,header)
 	})
 
 	function newCategory(){
