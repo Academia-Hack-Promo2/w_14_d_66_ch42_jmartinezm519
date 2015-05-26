@@ -2,12 +2,7 @@ var Category = (function(){
 
 	var Category =  function(data, container){
 		this.container = container;
-
-		if(data){
-			this.init(data);
-		}else{
-			this.getData();
-		}
+		this.init(data);
 	}
 
 	Category.prototype.init = function(data){
@@ -15,25 +10,12 @@ var Category = (function(){
 		this.id = data.id;
 	};	
 
-	// Category.prototype.getData = function(){
-	// 	$.ajax({
-	// 		type: ,
-	// 		url: ,
-	// 		success: function(){
-
-	// 		},
-	// 		error: function(){
-
-	// 		}
-	// 	});
-	// };
-
 	Category.prototype.draw = function(){		
-		return $('<div/>',{class:"col s12 m6"}).append(
+		cuadro =( $('<div/>',{class:"col s12 m6"}).append(
 			$('<div/>',{class:"card white"}).append(
 				$('<div/>',{class:"card-content"}).append(
 					$('<span/>',{class:'card-title black-text'}).html(
-							'Sin Categoria'
+						'Sin Categoria'
 						)
 					),
 				$('<div/>').append(
@@ -46,11 +28,13 @@ var Category = (function(){
 					)
 				)
 			)	
+		)
+		return cuadro
 	};
 
 
 	Category.prototype.draw1 = function(){		
-		return $('<div/>',{class:"col s12 m6"}).append(
+		cuadro = ( $('<div/>',{class:"col s12 m6"}).append(
 			$('<div/>',{class:"card white"}).append(
 				$('<div/>',{class:"card-content"}).append(
 					$('<span/>',{class:'card-title black-text'}).html(
@@ -67,44 +51,37 @@ var Category = (function(){
 					)
 				)
 			)	
+		)
+		return cuadro
 	};	
 
-	Category.prototype.ulSelect = function (){
-		return $('<li>').html($('<span/>').html(this.name))
-	}
-
-	Category.prototype.selectCategory = function () {
-		return $('<option value="' + this.id + '">' + this.name + '</option>');
-	};
-
 	Category.prototype.appendToContainer = function () {
-		$(this.container).append(this.draw());
+		return this.draw1();
 	};
 
-	Category.prototype.newCategory = function(){
-		var self = this;
-		var category = {
-			"title": this.name
-		};
-		$.ajax({
-			type: 'post',
-			url: 'http://localhost:3000/categories',
-			data: 'category',
-			success: function(data){
-				console.log("creada"+data.id);
-				categories = new Category();
-			},
-			error: function(){
-				console.log('error al crear')
-			}
-		});
-	}
+	// Category.prototype.newCategory = function(){
+	// 	var self = this;
+	// 	var category = {
+	// 		"title": this.name
+	// 	};
+	// 	$.ajax({
+	// 		type: 'post',
+	// 		url: 'http://localhost:3000/categories',
+	// 		data: 'category',
+	// 		success: function(data){
+	// 			console.log("creada"+data.id);
+	// 			categories = new Category();
+	// 		},
+	// 		error: function(){
+	// 			console.log('error al crear')
+	// 		}
+	// 	});
+	// }
 
 	Category.prototype.updateCategory = function(){
 		var title = {
 			"title": this.name
 		}
-		console.log(category)
 		$.ajax({
 			type: 'patch',
 			// data: {_method: 'pacth'},
