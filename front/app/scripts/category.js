@@ -65,8 +65,13 @@ var Category = (function(){
 	Category.prototype.drawCategoryTasks = function(){
 		return ( $('<li/>').append(
 			$('<div/>',{class:'collapsible-header'}).append(
-				$('<i/>',{class:'mdi-image-filter-drama'}),
-				' ' + this.name
+				$('<div/>',{class:'row'}).append(
+					$('<div/>',{class:'col m1'}).append(
+						$('<i/>',{class:'mdi-image-filter-drama'})
+						),
+					$('<div/>',{class:'col m4'}).html(' ' + this.name),
+					$('<div/>',{class:' right-align'}).html('Nº de tareas ' + this.tasks.length)
+					) 
 				),
 			$('<div/>',{class:'collapsible-body',id:'category'+this.id})
 			)
