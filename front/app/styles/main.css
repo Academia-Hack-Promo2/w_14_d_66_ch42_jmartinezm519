@@ -5,6 +5,35 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #333;
 }
+nav ul li {
+  padding: 5px;
+}
+
+nav .nav-wrapper {
+  position: relative;
+  height: 75px;
+}
+
+.title{
+    font-family: 'Paytone One', sans-serif;
+  position: relative;
+  bottom: 35px;
+  font-size: 40px;
+}
+
+.title-2{
+  font-family: 'Paytone One', sans-serif;
+  padding-left: 10px;
+  position: relative;
+  bottom: 5px;
+  font-size: 20px;
+}
+
+nav .nav-wrapper .edit-icon{
+  display: block;
+  margin-top: 10px;
+  font-size: 110px;
+}
 
 .hero-unit {
   margin: 50px auto 0 auto;

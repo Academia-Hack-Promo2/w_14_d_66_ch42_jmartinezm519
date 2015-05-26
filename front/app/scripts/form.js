@@ -31,7 +31,7 @@ var postData = (function(){
         data: dataTask,
         success: function(data) {
         console.log(data);
-        console.log("Tarea guardada exitosamente, falta arreglar la maqueta")
+        console.log("Tarea guardada exitosamente, falta arreglar la maqueta ")
       }, 
       error: function(data) {
         console.log(data);
