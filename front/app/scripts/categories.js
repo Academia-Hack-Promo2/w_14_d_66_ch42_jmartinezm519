@@ -56,9 +56,9 @@ var Categories = (function(){
 			url: 'http://localhost:3000/categories_all_tasks',
 			success: function(data){
 				self.init(data);
-				self.draw();
+				self.drawCollapse();
 				self.drawCategories();
-				self.drawTasks();
+				self.drawCollapseTasks();
 			},
 			error: function(){
 				console.log('Error solicitud')
@@ -66,21 +66,24 @@ var Categories = (function(){
 		})
 	};
 
-	Categories.prototype.draw = function(){
+	Categories.prototype.drawCollapse = function(){
 		this.header.html('')
 		for (var i = 0; i < this.categories.length; i++) {
 			this.header.append(this.categories[i].drawCategoryTasks());
 		};
 	}
 
-	Categories.prototype.drawTasks = function(){
+	Categories.prototype.drawCollapseTasks = function(){
 		for (var i = 0; i < this.categories.length; i++) {
 			content = $('#category'+this.categories[i].id);
 			for (var j = 0; j < this.categories[i].tasks.length ; j++) {
 				task = this.categories[i].tasks[j];	
 				content.append(
-					$('<div/>').html(
-						task.title
+					$('<div/>',{class: 'row'}).append(
+						$('<div/>',{class:'col m1 center-align'}).append($('<i/>',{class: 'mdi-av-my-library-books'})),
+						$('<div/>',{class:'col m5'}).html('Titulo: '+task.title),
+						$('<div/>',{class:'col m3'}).html('Fecha: '+task.date),
+						$('<div/>',{class:'col m3'}).html('Estado: '+task.status) 
 						)
 					)
 			};

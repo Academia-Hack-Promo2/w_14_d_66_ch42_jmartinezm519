@@ -75,4 +75,3 @@ var postCategory = (function(){
 
 postData();
 postCategory();
-
