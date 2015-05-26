@@ -9,7 +9,6 @@ var Category = (function(){
 		this.tasks = data.tasks;
 		this.name = data.category;
 		this.id = data.id;
-		console.log(this.tasks);
 	};	
 
 	Category.prototype.draw = function(){		
@@ -57,22 +56,21 @@ var Category = (function(){
 		return cuadro
 	};	
 
-	Category.prototype.drawTasks = function(){
-		return	"hola"
+	Category.prototype.drawTasks = function(container){
+		return $('<div>').html(
+			this.title
+			)
 	}
 
 	Category.prototype.drawCategoryTasks = function(){
-		container = ( $('<li/>').append(
+		return ( $('<li/>').append(
 			$('<div/>',{class:'collapsible-header'}).append(
 				$('<i/>',{class:'mdi-image-filter-drama'}),
-				 ' ' + this.name
+				' ' + this.name
 				),
-			$('<div>',{class:'collapsible-body',id:'category'+this.id}).append(
-				this.drawTasks()
-				)
+			$('<div/>',{class:'collapsible-body',id:'category'+this.id})
 			)
 		)
-		return container
 	}
 
 	Category.prototype.appendToContainer = function () {

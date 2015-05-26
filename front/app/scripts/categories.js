@@ -56,8 +56,9 @@ var Categories = (function(){
 			url: 'http://localhost:3000/categories_all_tasks',
 			success: function(data){
 				self.init(data);
-				self.drawCategories();
 				self.draw();
+				self.drawCategories();
+				self.drawTasks();
 			},
 			error: function(){
 				console.log('Error solicitud')
@@ -66,50 +67,64 @@ var Categories = (function(){
 	};
 
 	Categories.prototype.draw = function(){
+		this.header.html('')
 		for (var i = 0; i < this.categories.length; i++) {
-			this.header.append(this.categories[i].drawCategoryTasks())
-			//for (var i 0; i < this.)
+			this.header.append(this.categories[i].drawCategoryTasks());
+		};
+	}
+
+	Categories.prototype.drawTasks = function(){
+		for (var i = 0; i < this.categories.length; i++) {
+			content = $('#category'+this.categories[i].id);
+			for (var j = 0; j < this.categories[i].tasks.length ; j++) {
+				task = this.categories[i].tasks[j];	
+				content.append(
+					$('<div/>').html(
+						task.title
+						)
+					)
+			};
 		};
 		$('.collapsible').collapsible({
       accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
-   });
-}
-
-Categories.prototype.drawCategories = function() {
-	this.container.html('');
-	for(var i = 0; i < this.categories.length; i++) {			
-		if (i == 0){
-			this.container.append(this.categories[i].draw());
-		}else{		
-			this.container.append(this.categories[i].appendToContainer());
-		}
+    });
 	}
-	this.container.append(this.draw_nueva);
 
-	this.funciones[1]();
-	this.funciones[2]();
-	this.funciones[3]();
-	this.funciones[0]();
+	Categories.prototype.drawCategories = function() {
+		this.container.html('');
+		for(var i = 0; i < this.categories.length; i++) {			
+			if (i == 0){
+				this.container.append(this.categories[i].draw());
+			}else{		
+				this.container.append(this.categories[i].appendToContainer());
+			}
+		}
+		this.container.append(this.draw_nueva);
 
-	return this.container;
-};
+		this.funciones[1]();
+		this.funciones[2]();
+		this.funciones[3]();
+		this.funciones[0]();
 
-Categories.prototype.draw_nueva = function() {	
-	return $('<div/>',{class:"col s12 m6"}).append(
-		$('<div/>',{class:"card white"}).append(
-			$('<div/>',{class:"card-content"}).append(
-				$('<span/>',{class:'card-title black-text'}).html(
-					'Nueva Categoria'
-					)
-				),
-			$('<div/>').append(
-				$('<a>', {class: 'waves-effect btn btn-n right modal-trigger',href:'#nueva'}).html('Crear').append(
-					$('<i>', {class: 'mdi-editor-border-color left'})
+		return this.container;
+	};
+
+	Categories.prototype.draw_nueva = function() {	
+		return $('<div/>',{class:"col s12 m6"}).append(
+			$('<div/>',{class:"card white"}).append(
+				$('<div/>',{class:"card-content"}).append(
+					$('<span/>',{class:'card-title black-text'}).html(
+						'Nueva Categoria'
+						)
+					),
+				$('<div/>').append(
+					$('<a>', {class: 'waves-effect btn btn-n right modal-trigger',href:'#nueva'}).html('Crear').append(
+						$('<i>', {class: 'mdi-editor-border-color left'})
+						)
 					)
 				)
 			)
-		)
-}
+	}
 
-return Categories;
+	return Categories;
 })();

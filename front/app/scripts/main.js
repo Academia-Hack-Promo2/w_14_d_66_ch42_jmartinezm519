@@ -12,6 +12,8 @@ $(document).ready(function() {
 	});
 
 	$(function(){
+		// var ul_select = $('.dropdown-content.select-dropdown')
+		// var container_select = $('#categories')
 		var container = $('#cat-cont')
 		var header = $('#header')
 		var categories = new Categories(container,header)
