@@ -57,7 +57,7 @@ var postCategory = (function(){
         var header = $('#header');
         var container = $('#cat-cont');
         categories = new Categories(container,header);
-        if (data.title.length <= 1 ){
+        if (data.title.length < 5 ){
           Materialize.toast('Categoria No Creada', 3000)
         }
         else{
