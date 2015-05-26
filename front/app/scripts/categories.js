@@ -1,8 +1,6 @@
 var Categories = (function(){
 
-	var Categories = function(ul_select, container_select, container, data){
-		this.ul_select = ul_select;
-		this.container_select = container_select;
+	var Categories = function(container, data){
 		this.container = container;
 
 		if(data){
@@ -41,10 +39,7 @@ var Categories = (function(){
 		this.container.html('');
 		Events = new Events();
 		for(var i = 0; i < this.categories.length; i++) {			
-
-		this.ul_select.append(this.categories[i].ulSelect());
 		this.container.append(this.categories[i].draw1());
-		this.container_select.append(this.categories[i].selectCategory());
 		
 		}
 		this.container.append(this.draw_nueva);

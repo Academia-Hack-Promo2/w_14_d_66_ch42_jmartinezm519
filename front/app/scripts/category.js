@@ -69,13 +69,13 @@ var Category = (function(){
 			)	
 	};	
 
-	Category.prototype.ulSelect = function (){
-		return $('<li>').html($('<span/>').html(this.name))
-	}
+	// Category.prototype.ulSelect = function (){
+	// 	return $('<li>').html($('<span/>').html(this.name))
+	// }
 
-	Category.prototype.selectCategory = function () {
-		return $('<option value="' + this.id + '">' + this.name + '</option>');
-	};
+	// Category.prototype.selectCategory = function () {
+	// 	return $('<option value="' + this.id + '">' + this.name + '</option>');
+	// };
 
 	Category.prototype.appendToContainer = function () {
 		$(this.container).append(this.draw());

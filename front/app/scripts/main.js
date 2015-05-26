@@ -11,10 +11,10 @@ $(document).ready(function() {
 	});
 
 	$(function(){
-		var ul_select = $('.dropdown-content.select-dropdown')
-		var container_select = $('#categories')
+		// var ul_select = $('.dropdown-content.select-dropdown')
+		// var container_select = $('#categories')
 		var container = $('#cat-cont')
-		var categories = new Categories(ul_select, container_select, container)
+		var categories = new Categories(container)
 	})
 });
 
