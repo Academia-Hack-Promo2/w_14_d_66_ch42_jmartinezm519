@@ -26,7 +26,6 @@
         "date": $('#date_task').val(),
         "category_id": $('#categories').val()
       };
-
       $.ajax({
         type: 'post',
         url: 'http://localhost:3000/tasks',
@@ -46,15 +45,12 @@
  var postCategory = (function(){
 
   $('#postEnviar').click(function(){
-    var dataCategory = {
-      "title": $('#category_name').val(),
-    };
+    var dataCategory = {"title": $('#category_name').val(),};
     $.ajax({
       type: 'post',
       url: 'http://localhost:3000/categories',
       data: dataCategory,
       success: function(data) {
-        console.log(data)
         var header = $('#header');
         var container = $('#cat-cont');
         categories = new Categories(container,header);
@@ -63,8 +59,8 @@
         }
         else{
           Materialize.toast('Categoria Creada', 3000)
-        }
-        $('#category_name').val(' '),
+        };
+        $('#category_name').val(' ');
         postCategory();
       }, 
       error: function(data) {

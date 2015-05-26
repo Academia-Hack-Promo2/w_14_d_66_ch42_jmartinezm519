@@ -25,9 +25,9 @@ var Categories = (function(){
 
 		this.funciones.push(function(){
 			return ($('.enviar').click(function(){
-				var data = {"id":$(this).attr('id'),"category": $('#new_name').val()}
+				var data = {"id":$(this).attr('id'),"category": $('#new_name').val()};
 				category = new Category(data);
-				console.log('update')
+				console.log('update');
 				category.updateCategory();
 			}))
 		});
@@ -37,7 +37,7 @@ var Categories = (function(){
 			this.drawCategories();
 		}else{
 			this.getData();
-		}
+		};
 	};
 
 	Categories.prototype.init = function(data,container) {
@@ -46,7 +46,7 @@ var Categories = (function(){
 		for (var i = 0;i < data.length; i++) {			
 			category = new Category(data[i],container);
 			this.categories.push(category);
-		}
+		};
 	};
 
 	Categories.prototype.getData = function() {
@@ -61,17 +61,17 @@ var Categories = (function(){
 				self.drawCollapseTasks();
 			},
 			error: function(){
-				console.log('Error solicitud')
+				console.log('Error solicitud');
 			}
 		})
 	};
 
 	Categories.prototype.drawCollapse = function(){
-		this.header.html('')
+		this.header.html('');
 		for (var i = 0; i < this.categories.length; i++) {
 			this.header.append(this.categories[i].drawCategoryTasks());
 		};
-	}
+	};
 
 	Categories.prototype.drawCollapseTasks = function(){
 		for (var i = 0; i < this.categories.length; i++) {
@@ -79,7 +79,7 @@ var Categories = (function(){
 			for (var j = 0; j < this.categories[i].tasks.length ; j++) {
 				task = this.categories[i].tasks[j];	
 				content.append(
-					$('<div/>',{class: 'row'}).append(
+					$('<div/>',{class: 'row tareas'}).append(
 						$('<div/>',{class:'col m1 center-align'}).append($('<i/>',{class: 'mdi-av-my-library-books'})),
 						$('<div/>',{class:'col m5'}).html('Titulo: '+task.title),
 						$('<div/>',{class:'col m3'}).html('Fecha: '+task.date),
@@ -91,7 +91,7 @@ var Categories = (function(){
 		$('.collapsible').collapsible({
       accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
     });
-	}
+	};
 
 	Categories.prototype.drawCategories = function() {
 		this.container.html('');
@@ -127,7 +127,7 @@ var Categories = (function(){
 					)
 				)
 			)
-	}
+	};
 
 	return Categories;
 })();
