@@ -25,11 +25,11 @@ var Task = (function(){
 						).append(
 						$('<div/>', {class: 'collapsible-body'}).append($('<p>').html('Fecha de culminacion:'+ ' ' + this.date
 						 + '<br>' + 'Status:' + ' ' + this.status)).append(
-							$('<a>', {class: 'waves-effect waves-light btn btn-edit'}).html('Editar').append(
+							$('<a>', {class: 'waves-effect waves-light btn btn-edit right'}).html('Editar').append(
 								$('<i>', {class: 'mdi-editor-border-color left'})
 							)
 						).append(
-							$('<a>', {class: 'waves-effect waves-light btn btn-delete'}).html('Borrar').append(
+							$('<a>', {class: 'waves-effect waves-light btn btn-delete right'}).html('Borrar').append(
 								$('<i>', {class: 'mdi-action-delete left'})
 							)
 						)

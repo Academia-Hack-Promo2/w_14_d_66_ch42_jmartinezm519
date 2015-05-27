@@ -1,12 +1,14 @@
 @import url(http://fonts.googleapis.com/css?family=Paytone+One);
-
-body {
-  background: #fafafa;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #333;
+body, html {
+  height: 100%;
+  width: 100%;
 }
 nav ul li {
   padding: 5px;
+}
+.content-a {
+  background-color: #ebebeb;
+  padding: 50px 0;
 }
 
 nav .nav-wrapper {
@@ -35,60 +37,50 @@ nav .nav-wrapper .edit-icon{
   font-size: 110px;
 }
 
-.hero-unit {
-  margin: 50px auto 0 auto;
-  width: 300px;
-  font-size: 18px;
-  font-weight: 200;
-  line-height: 30px;
-  background-color: #eee;
-  border-radius: 6px;
-  padding: 60px;
+.caption{
+  margin-top: 60px;
 }
 
-.hero-unit h1 {
-  font-size: 60px;
-  line-height: 1;
-  letter-spacing: -1px;
-}
-
-.browsehappy {
-  margin: 0.2em 0;
-  background: #ccc;
-  color: #000;
-  padding: 0.2em 0;
-}
-
-.slider-titles {
+.slider-titles h2{
+  color:#f5f5f5;
+  margin-bottom: 30px;
+    text-align: center;
   font-family: 'Paytone One', sans-serif;
 }
 
-.btn{
-  padding: 0 1rem;
-  margin-bottom: 10px;
-  margin-left: 10px;
+.slider-titles h3{
+  color:#f5f5f5;
+  font-family: 'Paytone One', sans-serif;
+  font-size: 20px;
+  text-align: center;
+}
+
+.btn-center{
+   padding: 0px 45px;
+  margin-left: 300px;
 }
 
 .btn-edit{
-  margin-left: 145px;
+   padding: 0px 30px;
+  margin: 0px 15px 10px 10px;
 }
 
 .btn-d{
-  padding: 0px 10px;
+  padding: 0px 30px;
   margin: 0px 15px 10px 10px;
 }
 
 .btn-e{
-  padding: 0px 10px;
+  padding: 0px 30px;
   margin: 0px 15px 10px 10px;
 }
 
 .btn-b{
-  padding: 0px 10px;
+  padding: 0px 30px;
 }
 
 .btn-n{
-  padding: 0px 10px;
+  padding: 0px 30px;
   margin: 0px 15px 10px 10px;
 }
 
