@@ -52,20 +52,19 @@
       url: 'http://localhost:3000/categories',
       data: dataCategory,
       success: function(data) {
-        var header = $('#header');
-        var container = $('#cat-cont');
-        categories = new Categories(container,header);
+        postCategory();
+        $('#category_name').val('')
         if (data.title.length < 5 ){
           Materialize.toast('Categoria No Creada', 3000)
         }
         else{
+          var header = $('#header');
+          var container = $('#cat-cont');
+          categories = new Categories(container,header);
           Materialize.toast('Categoria Creada', 3000)
         };
-        $('#category_name').val(' ');
-        postCategory();
       }, 
       error: function(data) {
-        console.log(data);
       }
     });
   })

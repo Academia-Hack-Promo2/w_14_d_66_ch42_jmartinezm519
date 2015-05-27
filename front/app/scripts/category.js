@@ -86,13 +86,14 @@ var Category = (function(){
 		var title = {"title": this.name};
 		$.ajax({
 			type: 'patch',
-			// data: {_method: 'pacth'},
-			url: 'http://localhost:3000/categories/'+this.id,
 			data: title,
+			url: 'http://localhost:3000/categories/'+this.id,
 			success: function(data){
-				var container = $('#cat-cont');
 				var header = $('#header');
+				var container = $('#cat-cont');
+				$('#new_name').val('');
 				categories = new Categories(container,header);
+				console.log("aqui");
 			},
 			error: function(){
 				console.log('error al actualizar');
