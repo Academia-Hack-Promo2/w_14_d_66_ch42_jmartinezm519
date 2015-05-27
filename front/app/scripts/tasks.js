@@ -42,12 +42,6 @@ var Tasks = (function(){
 	    });
 	}
 
-	Tasks.prototype.buttonReady = function(){
-		$('.btn-delete').click(function(){
-			
-		})
-
-	}
 
 	Tasks.prototype.draw = function(){
 		for (var i = 0; i < this.tasks.length; i++) {

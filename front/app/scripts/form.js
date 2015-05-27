@@ -31,8 +31,9 @@
         url: 'http://localhost:3000/tasks',
         data: dataTask,
         success: function(data) {
-          console.log(data);
-          console.log("Tarea guardada exitosamente, falta arreglar la maqueta")
+          var container = $('.tasks')
+          tasks = new Tasks(container)
+          Materialize.toast('Tarea Creada', 3000)
         }, 
         error: function(data) {
           console.log(data);

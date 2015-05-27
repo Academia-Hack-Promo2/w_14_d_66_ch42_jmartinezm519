@@ -22,6 +22,8 @@
 
 <body>
     <div id="inicio"></div>
+    <!-- Boton para subir hasta el top de la pagina -->
+    <a href="#" class="scrollup">Scroll</a>
     <div class="navbar-fixed">
         <nav>
             <div class="nav-wrapper color teal light-2">
@@ -102,35 +104,24 @@
             <a href="#" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
             <a href="#" class=" modal-action modal-close waves-effect waves-green btn-flat" id="postEnviar">Enviar</a>
         </div>
-  </div>
-  <div class="container">
-    <div class="row">
-      <div class="col m12">
-        <ul class="collapsible popout" data-collapsible="accordion" id="header">
-        </ul>
-      </div>
     </div>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col m12">
-                <ul class="collapsible" data-collapsible="accordion" id="header">
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="task">
-        <div class="row">
-            <div class="input-field col m6">
-            </div>
-        </div>
-    </div>
-        <a class="waves-effect waves-light btn modal-trigger" href="#modal2">Modal</a>
     <div id="link_to_tasks"></div>
-        <div class="content-a">
-            <div class="container">
+    <div class="content-a">
+        <div class="container">
             <h2 class="center-align">Tareas</h2>
             <div class="row">
+                <div class="col m12">
+                  <div class="center-align">
+                      <h5 class="center-aling">Deseas agregar una nueva tarea?</h5><br>
+                    <a class="waves-effect waves-light btn modal-trigger" href="#modal2">Click Aqui !</a>
+                  </div><br>
+                  <div class="center-align">
+                    <h5>Mantente al tanto de todas tus tareas!</h5>
+                  </div><br>
+                    <ul class="collapsible popout" data-collapsible="accordion" id="header">
+                    </ul><br>
+                </div>
+                <h5 class="center-align">¡He Aqui! Un listado de todas tus tareas con la opcion de eliminar o editar.</h5><br>
                 <div class="tasks">
                 </div>
             </div>
@@ -148,8 +139,8 @@
                         <label for="input_text">Titulo</label>
                     </div>
                     <div class="input-field col s4">
-                        <select class="browser-default" id="categories  ">
-                            <option value="" disabled selected>Seleccione su categoria</option>
+                        <select class="browser-default" id="categories">
+                            <option value="">Seleccione su categoria</option>
                         </select>
                     </div>
                     <div class="input-field col s4">
@@ -159,7 +150,8 @@
             </form>
         </div>
         <div class="modal-footer">
-            <a class="waves-effect waves-light btn btn-save">Enviar</a>
+            <a href="#" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
+            <a href="#" class=" modal-action modal-close waves-effect waves-green btn-flat btn-save">Enviar</a>
         </div>
     </div>
     <div id="link_to_categories"></div>
@@ -198,20 +190,39 @@
         </div>
     </div>
     <br>
-  <!-- build:js(.) scripts/vendor.js -->
-  <!-- bower:js -->
-  <script src="bower_components/jquery/dist/jquery.js"></script>
-  <script src="bower_components/materialize/bin/materialize.js"></script>
-  <script src="bower_components/smooth-scroll/dist/js/smooth-scroll.js"></script>
-  <!-- endbower -->
-  <!-- endbuild -->
-  <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-  <script src="scripts/tasks.js"></script>
-  <script src="scripts/task.js"></script>
-  <script src="scripts/category.js"></script>
-  <script src="scripts/categories.js"></script>
-  <script src="scripts/form.js"></script>
-  <script>
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/materialize/bin/materialize.js"></script>
+    <script src="bower_components/smooth-scroll/dist/js/smooth-scroll.js"></script>
+    <!-- endbuild -->
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script src="scripts/tasks.js"></script>
+    <script src="scripts/task.js"></script>
+    <script src="scripts/category.js"></script>
+    <script src="scripts/categories.js"></script>
+    <script src="scripts/form.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 100) {
+                $('.scrollup').fadeIn();
+            } else {
+                $('.scrollup').fadeOut();
+            }
+        });
+
+        $('.scrollup').click(function() {
+            $("html, body").animate({
+                scrollTop: 0
+            }, 600);
+            return false;
+        });
+
+    });
+    </script>
+    <script>
     (function(b, o, i, l, e, r) {
         b.GoogleAnalyticsObject = l;
         b[l] || (b[l] =
