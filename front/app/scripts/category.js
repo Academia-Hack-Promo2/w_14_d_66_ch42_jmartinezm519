@@ -78,8 +78,9 @@ var Category = (function(){
 		)
 	};
 
+
 	Category.prototype.appendToContainer = function () {
-		return this.draw1();
+		return this.draw1()
 	};
 
 	Category.prototype.updateCategory = function(){
