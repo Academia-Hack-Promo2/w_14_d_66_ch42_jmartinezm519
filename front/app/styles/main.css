@@ -135,10 +135,10 @@ select{
 
 .text-parallax2{
   line-height: 50px;
-  font-family: 'Paytone One', sans-serif;
-  color:#000;
+  color:#fff;
   margin-top: 140px;
-  font-size: 55px;
+  font-size: 65px;
+  font-weight: 600;
 }
 
 .task-hr{
@@ -153,10 +153,43 @@ select{
 
 .our-team-hr{
   width: 340px;
-  border: 2px solid #ebebeb;
+  border: 2px solid #009688;
 }
 
 .border-photo{
-  margin-left: 60px;
-  border-radius: 10px;
+  margin-left: 80px;
+  border-radius: 5px;
+}
+
+.text-ourteam{
+  color:#fff;
+  text-align: center;
+  font-weight: 600;
+}
+
+.fa{
+  padding-left: 10px;
+}
+
+.fa:hover{
+  color:#009688;
+}
+
+.pie-de-pagina{
+  position: relative;
+  margin-top: 210px;
+  padding: 0;
+  background-color: #009688;
+  height: 70px;
+  width: 100%;
+}
+
+.text-p{
+  font-weight: 500;
+  color: #fff;
+  padding-top: 20px;
+  font-size: 20px;
+}
+.color-icon{
+  color: #fff;
 }
