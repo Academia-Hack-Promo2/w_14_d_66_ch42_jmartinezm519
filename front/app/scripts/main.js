@@ -3,7 +3,8 @@ $(document).ready(function() {
 	$('.modal-trigger').leanModal();
 	$('select').material_select();
 	$(".button-collapse").sideNav();
-	    smoothScroll.init();
+	 smoothScroll.init();
+	$('.parallax').parallax();
 
 	$(function(){
 		var task = $('.tasks');

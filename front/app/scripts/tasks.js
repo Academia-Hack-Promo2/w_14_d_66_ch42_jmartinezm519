@@ -26,7 +26,6 @@ var Tasks = (function(){
 				self.init(data);
 				self.draw();
 				self.dataReady();
-				self.buttonReady();
 			},
 
 			error: function(data){

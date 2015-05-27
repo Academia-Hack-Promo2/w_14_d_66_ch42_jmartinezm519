@@ -28,7 +28,7 @@
         <nav>
             <div class="nav-wrapper color teal light-2">
                 <div class="container">
-                    <a data-scroll href="#inicio" class="brand-logo"><i class="icon-laptop-icon edit-icon"><span class="title">Nuevo Titulo</span></i></a>
+                    <a data-scroll href="#inicio" class="brand-logo"><i class="icon-laptop-icon edit-icon"><span class="title">Easy Life</span></i></a>
                     <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
                     <ul class="right hide-on-med-and-down">
                         <li><a data-scroll href="#link_to_tasks"><i class="mdi-action-toc"><span class="title-2">Tareas</span></i></a></li>
@@ -75,53 +75,24 @@
             </li>
         </ul>
     </div>
-    <div id="editar" class="modal bottom-sheet">
-        <div class="modal-content">
-            <h4>Editar Categoria</h4>
-            <div class="row">
-                <div class="input-field col s6">
-                    <input id="new_name" type="text" class="validate" length="15">
-                    <label for="last_name">Nuevo Nombre</label>
-                </div>
-            </div>
-        </div>
-        <div class="modal-footer">
-            <a href="#" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
-            <a href="#" class=" modal-action modal-close waves-effect waves-green btn-flat enviar">Enviar</a>
-        </div>
-    </div>
-    <div id="nueva" class="modal bottom-sheet">
-        <div class="modal-content">
-            <h4>Nueva Categoria</h4>
-            <div class="row">
-                <div class="input-field col s6">
-                    <input id="category_name" type="text" class="validate" length="15">
-                    <label for="last_name">Nombre de la categoria</label>
-                </div>
-            </div>
-        </div>
-        <div class="modal-footer">
-            <a href="#" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
-            <a href="#" class=" modal-action modal-close waves-effect waves-green btn-flat" id="postEnviar">Enviar</a>
-        </div>
-    </div>
     <div id="link_to_tasks"></div>
     <div class="content-a">
         <div class="container">
             <h2 class="center-align">Tareas</h2>
+            <hr class="task-hr">
+            <hr class="task-hr">
             <div class="row">
                 <div class="col m12">
-                  <div class="center-align">
-                      <h5 class="center-aling">Deseas agregar una nueva tarea?</h5><br>
-                    <a class="waves-effect waves-light btn modal-trigger" href="#modal2">Click Aqui !</a>
-                  </div><br>
-                  <div class="center-align">
-                    <h5>Mantente al tanto de todas tus tareas!</h5>
-                  </div><br>
-                    <ul class="collapsible popout" data-collapsible="accordion" id="header">
-                    </ul><br>
+                    <div class="center-align">
+                        <h5>Deseas agregar una nueva tarea?</h5>
+                        <br>
+                        <a class="waves-effect waves-light btn modal-trigger" href="#modal2"><i class="large mdi-action-note-add left"></i>Click Aqui !</a>
+                    </div>
+                    <br>
+                    <br>
                 </div>
-                <h5 class="center-align">¡He Aqui! Un listado de todas tus tareas con la opcion de eliminar o editar.</h5><br>
+                <h5 class="center-align">¡He Aqui! Un listado de todas tus tareas..</h5>
+                <br>
                 <div class="tasks">
                 </div>
             </div>
@@ -150,14 +121,33 @@
             </form>
         </div>
         <div class="modal-footer">
-            <a href="#" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
-            <a href="#" class=" modal-action modal-close waves-effect waves-green btn-flat btn-save">Enviar</a>
+            <a href="#link_to_tasks" class=" modal-action modal-close waves-effect waves-green btn-flat"><i class="mdi-navigation-cancel left"></i>Cancelar</a>
+            <a href="#link_to_tasks" class=" modal-action modal-close waves-effect waves-green btn-flat btn-save"><i class="mdi-content-add-circle left"></i>Enviar</a>
         </div>
     </div>
+    <div class="parallax-container">
+        <h5 class="center-align text-parallax container">"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus harum aperiam dolore vel, minus eveniet? Optio" </h5>
+        <br>
+        <div class="parallax"><img src="images/apple-camera-desk-office.jpg" height="1100" width="1400"></div>
+    </div>
     <div id="link_to_categories"></div>
-    <div class="categories">
+    <div class="categories content-b">
         <div class="container">
-            <h2 class="center-align">Categorias</h2>
+            <div class="center-align">
+                <h2>Categorias</h2>
+                <hr class="categories-hr">
+                <hr class="categories-hr">
+                <br>
+                <h5 class="center-aling">Deseas agregar una nueva categoria?</h5>
+                <br>
+                <a class="waves-effect waves-light btn modal-trigger" href="#nueva"><i class="large mdi-action-note-add left"></i>Click Aqui !</a>
+                <br>
+                <br>
+                <h5>¡Enhorabuena!</h5>
+            </div>
+            <br>
+            <ul class="collapsible popout" data-collapsible="accordion" id="header"></ul>
+            <br>
             <div class="row" id="cat-cont">
                 <div class="col s12 m4">
                     <div class="card teal light-2">
@@ -189,7 +179,62 @@
             </div>
         </div>
     </div>
-    <br>
+    <div id="nueva" class="modal bottom-sheet">
+        <div class="modal-content">
+            <h4>Nueva Categoria</h4>
+            <div class="row">
+                <div class="input-field col s6">
+                    <input id="category_name" type="text" class="validate" length="15">
+                    <label for="last_name">Nombre de la categoria</label>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a href="#link_to_categories" class=" modal-action modal-close waves-effect waves-green btn-flat"><i class="mdi-navigation-cancel left"></i>Cancelar</a>
+            <a href="#link_to_categories" class=" modal-action modal-close waves-effect waves-green btn-flat" id="postEnviar"><i class="mdi-content-add-circle left"></i>Enviar</a>
+        </div>
+    </div>
+    <div id="editar" class="modal bottom-sheet">
+        <div class="modal-content">
+            <h4>Editar Categoria</h4>
+            <div class="row">
+                <div class="input-field col s6">
+                    <input id="new_name" type="text" class="validate" length="15">
+                    <label for="last_name">Nuevo Nombre</label>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a href="#" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
+            <a href="#" class=" modal-action modal-close waves-effect waves-green btn-flat enviar">Enviar</a>
+        </div>
+    </div>
+    <footer>
+        <div class="parallax-container">
+            <h5 class="center-align text-parallax2 container">Our Team</h5><br>
+            <hr class="our-team-hr">
+            <hr class="our-team-hr">
+            <br><br>
+            <div class="container">
+              
+            <div class="row">
+              <div class="col s4">
+              <img src="images/jonathan.jpg" height="150" width="230" alt="" class="border-photo"><br>
+              <h5>Jonathan Martinez</h5>
+              <h5>Web Developer</h5>
+              <h5>Github</h5>
+            </div>
+            <div class="col s4">
+              <img src="images/1779714_10202436019534165_1728066578_n.jpg" height="150" width="230" alt="" class="border-photo">
+            </div>
+            <div class="col s4">
+              <img src="images/samuel.jpg" height="150" width="230" alt="" class="border-photo">
+            </div>
+            </div>
+            </div>
+            <div class="parallax"><img src="images/black-and-white-city-skyline-buildings.jpg" height="1340" width="2060"></div>
+        </div>
+    </footer>
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>

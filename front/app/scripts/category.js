@@ -67,7 +67,7 @@ var Category = (function(){
 			$('<div/>',{class:'collapsible-header'}).append(
 				$('<div/>',{class:'row'}).append(
 					$('<div/>',{class:'col m1'}).append(
-						$('<i/>',{class:'mdi-image-filter-drama'})
+						$('<i/>',{class:'mdi-content-archive left'})
 						),
 					$('<div/>',{class:'col m4'}).html(' ' + this.name),
 					$('<div/>',{class:' right-align'}).html('Nº de tareas ' + this.tasks.length)

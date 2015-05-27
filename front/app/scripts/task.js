@@ -20,7 +20,7 @@ var Task = (function(){
 					$('<ul>', {class: 'collapsible'}).attr('data-collapsible','accordion').append(
 						$('<li>').append(
 							$('<div>', {class: 'collapsible-header'}).html(this.title).append(
-								$('<i>', {class: 'mdi-social-whatshot'})
+								$('<i>', {class: 'mdi-action-toc'})
 							)
 						).append(
 						$('<div/>', {class: 'collapsible-body'}).append($('<p>').html('Fecha de culminacion:'+ ' ' + this.date

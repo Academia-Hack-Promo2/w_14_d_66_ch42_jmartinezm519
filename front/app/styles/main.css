@@ -7,7 +7,13 @@ nav ul li {
   padding: 5px;
 }
 .content-a {
-  background-color: #ebebeb;
+  background-color: #f2f2f2;
+  padding: 90px 0;
+  margin-top: -40px;
+}
+
+.content-b{
+  background-color: #fff;
   padding: 90px 0;
   margin-top: -40px;
 }
@@ -114,4 +120,43 @@ select{
     text-indent:-9999px;
     background: url('../images/icon_top.png') no-repeat;
     z-index: 5;
+}
+
+    .parallax-container {
+      height: 800px;
+    }
+.text-parallax{
+  line-height: 50px;
+  font-family: 'Paytone One', sans-serif;
+  color:#fff;
+  margin-top: 230px;
+  font-size: 35px;
+}
+
+.text-parallax2{
+  line-height: 50px;
+  font-family: 'Paytone One', sans-serif;
+  color:#000;
+  margin-top: 140px;
+  font-size: 55px;
+}
+
+.task-hr{
+  width: 200px;
+  border: 1px solid #212121;
+}
+
+.categories-hr{
+  width: 300px;
+  border: 1px solid #212121;
+}
+
+.our-team-hr{
+  width: 340px;
+  border: 2px solid #ebebeb;
+}
+
+.border-photo{
+  margin-left: 60px;
+  border-radius: 10px;
 }

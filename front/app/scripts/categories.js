@@ -80,7 +80,7 @@ var Categories = (function(){
 				task = this.categories[i].tasks[j];	
 				content.append(
 					$('<div/>',{class: 'row tareas'}).append(
-						$('<div/>',{class:'col m1 center-align'}).append($('<i/>',{class: 'mdi-av-my-library-books'})),
+						$('<div/>',{class:'col m1 center-align'}).append($('<i/>',{class: 'mdi-action-toc'})),
 						$('<div/>',{class:'col m5'}).html('Titulo: '+task.title),
 						$('<div/>',{class:'col m3'}).html('Fecha: '+task.date),
 						$('<div/>',{class:'col m3'}).html('Estado: '+task.status) 
@@ -102,7 +102,6 @@ var Categories = (function(){
 				this.container.append(this.categories[i].appendToContainer());
 			}
 		}
-		this.container.append(this.draw_nueva);
 
 		this.funciones[1]();
 		this.funciones[2]();
@@ -110,23 +109,6 @@ var Categories = (function(){
 		this.funciones[0]();
 
 		return this.container;
-	};
-
-	Categories.prototype.draw_nueva = function() {	
-		return $('<div/>',{class:"col s12 m6"}).append(
-			$('<div/>',{class:"card white"}).append(
-				$('<div/>',{class:"card-content"}).append(
-					$('<span/>',{class:'card-title black-text'}).html(
-						'Nueva Categoria'
-						)
-					),
-				$('<div/>').append(
-					$('<a>', {class: 'waves-effect btn btn-n right modal-trigger',href:'#nueva'}).html('Crear').append(
-						$('<i>', {class: 'mdi-editor-border-color left'})
-						)
-					)
-				)
-			)
 	};
 
 	return Categories;
