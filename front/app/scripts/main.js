@@ -10,17 +10,13 @@ $(document).ready(function() {
 	});
 
 	$(function(){
-		// var ul_select = $('.dropdown-content.select-dropdown')
-		// var container_select = $('#categories')
-		var container = $('#cat-cont')
-		var header = $('#header')
-		var categories = new Categories(container,header)
+		var container = $('#cat-cont');
+		var header = $('#header');
+		var categories = new Categories(container,header);
 	})
 
 	function newCategory(){
-		data ={
-			"title": $('#nueva').val()
-		}
+		var data ={"title": $('#nueva').val()};
 		$.ajax({
 			type: 'post',
 			data: data,
@@ -29,11 +25,10 @@ $(document).ready(function() {
 				var categories = new Categories(ul_select, container_select, container)
 			},
 			error:function(response){
-				console.log(response)
+				console.log(response);
 			}
-		})
+		});
 	};
-	
 });
 
 

@@ -30,7 +30,7 @@ var Category = (function(){
 				)
 			)	
 		)
-		return cuadro
+		return cuadro;
 	};
 
 
@@ -53,34 +53,37 @@ var Category = (function(){
 				)
 			)	
 		)
-		return cuadro
+		return cuadro;
 	};	
 
 	Category.prototype.drawTasks = function(container){
 		return $('<div>').html(
 			this.title
 			)
-	}
+	};
 
 	Category.prototype.drawCategoryTasks = function(){
 		return ( $('<li/>').append(
 			$('<div/>',{class:'collapsible-header'}).append(
-				$('<i/>',{class:'mdi-image-filter-drama'}),
-				' ' + this.name
+				$('<div/>',{class:'row'}).append(
+					$('<div/>',{class:'col m1'}).append(
+						$('<i/>',{class:'mdi-image-filter-drama'})
+						),
+					$('<div/>',{class:'col m4'}).html(' ' + this.name),
+					$('<div/>',{class:' right-align'}).html('Nº de tareas ' + this.tasks.length)
+					) 
 				),
 			$('<div/>',{class:'collapsible-body',id:'category'+this.id})
 			)
 		)
-	}
+	};
 
 	Category.prototype.appendToContainer = function () {
 		return this.draw1();
 	};
 
 	Category.prototype.updateCategory = function(){
-		var title = {
-			"title": this.name
-		}
+		var title = {"title": this.name};
 		$.ajax({
 			type: 'patch',
 			// data: {_method: 'pacth'},
@@ -95,7 +98,7 @@ var Category = (function(){
 				console.log('error al actualizar');
 			}
 		});
-	}
+	};
 
 	Category.prototype.delete_category = function(){
 		$.ajax({
@@ -111,7 +114,7 @@ var Category = (function(){
 				console.log('error al eliminar')
 			}
 		});
-	}
+	};
 
 	return Category;
 })();
