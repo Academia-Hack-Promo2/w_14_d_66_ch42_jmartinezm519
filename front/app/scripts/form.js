@@ -2,7 +2,7 @@
 
   var postData = (function(){
 
-    (function () {
+  (function () {
       $.ajax({
         type: 'get',
         url: 'http://localhost:3000/categories',
@@ -12,6 +12,7 @@
               '<option value="' + data[i].id + '">'
               + data[i].category + 
               '</option>');
+            
           } 
         }, 
         error: function(data) {
@@ -43,6 +44,30 @@
 
   });
 
+
+
+  var getData = (function(){
+  (function () {
+      $.ajax({
+        type: 'get',
+        url: 'http://localhost:3000/categories',
+        success: function (data) {
+          $('#categories').html('');
+          for (var i = 0; i < data.length; i++ ) {
+            $('#categories').append(
+              '<option value="' + data[i].id + '">'
+              + data[i].category + 
+              '</option>');
+            
+          } 
+        }, 
+        error: function(data) {
+          console.log(data);
+        }
+      }); 
+    }()); 
+  });
+
  var postCategory = (function(){
 
   $('#postEnviar').click(function(){
@@ -52,6 +77,7 @@
       url: 'http://localhost:3000/categories',
       data: dataCategory,
       success: function(data) {
+        getData();
         var header = $('#header');
         var container = $('#cat-cont');
         categories = new Categories(container,header);
