@@ -1,8 +1,8 @@
- $(document).ready(function(){
+$(document).ready(function(){
 
   var postData = (function(){
 
-  (function () {
+    (function () {
       $.ajax({
         type: 'get',
         url: 'http://localhost:3000/categories',
@@ -12,7 +12,7 @@
               '<option value="' + data[i].id + '">'
               + data[i].category + 
               '</option>');
-            
+
           } 
         }, 
         error: function(data) {
@@ -34,6 +34,9 @@
         success: function(data) {
           var container = $('.tasks')
           tasks = new Tasks(container)
+          $('.text_title').val(''),
+          $('#date_task').val(''),
+          $('#categories').val('')
           Materialize.toast('Tarea Creada', 3000)
         }, 
         error: function(data) {
@@ -46,29 +49,29 @@
 
 
 
-  var getData = (function(){
+var getData = (function(){
   (function () {
-      $.ajax({
-        type: 'get',
-        url: 'http://localhost:3000/categories',
-        success: function (data) {
-          $('#categories').html('');
-          for (var i = 0; i < data.length; i++ ) {
-            $('#categories').append(
-              '<option value="' + data[i].id + '">'
-              + data[i].category + 
-              '</option>');
-            
-          } 
-        }, 
-        error: function(data) {
-          console.log(data);
-        }
-      }); 
-    }()); 
-  });
+    $.ajax({
+      type: 'get',
+      url: 'http://localhost:3000/categories',
+      success: function (data) {
+        $('#categories').html('');
+        for (var i = 0; i < data.length; i++ ) {
+          $('#categories').append(
+            '<option value="' + data[i].id + '">'
+            + data[i].category + 
+            '</option>');
 
- var postCategory = (function(){
+        } 
+      }, 
+      error: function(data) {
+        console.log(data);
+      }
+    }); 
+  }()); 
+});
+
+var postCategory = (function(){
 
   $('#postEnviar').click(function(){
     var dataCategory = {"title": $('#category_name').val(),};
@@ -77,28 +80,27 @@
       url: 'http://localhost:3000/categories',
       data: dataCategory,
       success: function(data) {
-        getData();
-        var header = $('#header');
-        var container = $('#cat-cont');
-        categories = new Categories(container,header);
+        postCategory();
+        $('#category_name').val('')
         if (data.title.length < 5 ){
           Materialize.toast('Categoria No Creada', 3000)
         }
         else{
+          getData();
+          var header = $('#header');
+          var container = $('#cat-cont');
+          categories = new Categories(container,header);
           Materialize.toast('Categoria Creada', 3000)
         };
-        $('#category_name').val(' ');
-        postCategory();
       }, 
       error: function(data) {
-        console.log(data);
       }
     });
   })
 })
 
 
- postData();
- postCategory();
+postData();
+postCategory();
 
 });

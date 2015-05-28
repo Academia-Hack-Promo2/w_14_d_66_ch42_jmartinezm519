@@ -11,7 +11,7 @@ var Categories = (function(){
 		
 		this.funciones.push(function(){
 			return ($('.btn-e').click(function(){
-				$('.enviar').attr('id', $(this).attr('id'))
+				$('.updateEditar').attr('id', $(this).attr('id'))
 			}))
 		});
 
@@ -24,11 +24,12 @@ var Categories = (function(){
 		});	
 
 		this.funciones.push(function(){
-			return ($('.enviar').click(function(){
+			return ($('.updateEditar').click(function(){
 				var data = {"id":$(this).attr('id'),"category": $('#new_name').val()};
 				category = new Category(data);
-				console.log('update');
 				category.updateCategory();
+				$(this).attr('id','');
+				$('#new_name').val('');
 			}))
 		});
 
@@ -57,8 +58,8 @@ var Categories = (function(){
 			success: function(data){
 				self.init(data);
 				self.drawCollapse();
-				self.drawCategories();
 				self.drawCollapseTasks();
+				self.drawCategories();
 			},
 			error: function(){
 				console.log('Error solicitud');
