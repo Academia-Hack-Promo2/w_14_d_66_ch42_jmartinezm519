@@ -74,7 +74,7 @@ var getData = (function(){
 
 var postCategory = (function(){
 
-  $('#postEnviar').click(function(){
+  $(document).on('click','#postEnviar',function(){
     var dataCategory = {"title": $('#category_name').val(),};
     $.ajax({
       type: 'post',

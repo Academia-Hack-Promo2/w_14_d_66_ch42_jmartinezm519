@@ -103,11 +103,9 @@ var Categories = (function(){
 				this.container.append(this.categories[i].appendToContainer());
 			}
 		}
-
-		this.funciones[1]();
-		this.funciones[2]();
-		this.funciones[3]();
-		this.funciones[0]();
+		for (var i = 0; i < this.funciones.length; i++) {
+			this.funciones[i]();
+		};
 
 		return this.container;
 	};
