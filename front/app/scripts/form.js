@@ -32,6 +32,7 @@ $(document).ready(function(){
         url: 'http://localhost:3000/tasks',
         data: dataTask,
         success: function(data) {
+          $('.tasks').html('');
           var container = $('.tasks')
           tasks = new Tasks(container)
           $('.text_title').val(''),

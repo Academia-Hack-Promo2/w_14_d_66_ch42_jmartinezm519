@@ -2,9 +2,14 @@
 
 var Tasks = (function(){
 
-	var Tasks = function(container){
+	var Tasks = function(container, data){
 		this.container = container;
-		this.getData();
+		if(data){
+			this.init(data);
+			this.draw();
+		}else{
+			this.getData();
+		};
 	}
 
 	Tasks.prototype.init = function(data){

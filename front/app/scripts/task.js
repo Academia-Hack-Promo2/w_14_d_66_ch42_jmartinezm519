@@ -31,7 +31,7 @@ var Task = (function(){
 						).append(
 						$('<div/>', {class: 'collapsible-body'}).append($('<p>').html('Fecha de culminacion:'+ ' ' + this.date
 						 + '<br>' + 'Status:' + ' ' + this.status)).append(
-							$('<a>', {id:this.id, class: 'waves-effect waves-light btn btn-edit right '+ change_class +''}).attr('data-status', this.status).html('Editar').append(
+							$('<a>', {id:this.id, class: 'waves-effect waves-light btn btn-edit right '+ change_class +''}).attr('data-status', this.status).html('Editar status').append(
 								$('<i>', {class: 'mdi-editor-border-color left'})
 							)
 						).append(
@@ -59,6 +59,9 @@ var Task = (function(){
 		data: {_method: 'delete'},
         url: 'http://localhost:3000/tasks/'+this.id,
         success: function(data){
+        $('.tasks').html('');
+        var container = $('.tasks')
+          tasks = new Tasks(container)
         Materialize.toast('Tarea borrada', 3000)
         },
         error: function(){
@@ -74,7 +77,10 @@ var Task = (function(){
         	url: 'http://localhost:3000/tasks/'+this.id+'/status',
         	data: status,
         success: function(data){
-        	Materialize.toast('Tarea editada', 3000)
+      		$('.tasks').html('');
+        	var container = $('.tasks')
+          	tasks = new Tasks(container)
+        	Materialize.toast('Status editado', 3000)
         },
         error: function(){
           console.log('Ha ocurrido un error al actualizar el status.');
