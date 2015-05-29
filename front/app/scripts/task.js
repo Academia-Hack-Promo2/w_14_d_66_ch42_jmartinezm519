@@ -16,6 +16,12 @@ var Task = (function(){
 
 	Task.prototype.draw = function(){
 
+		if (this.status == 'Done') {
+			var change_class = "done"
+		}else{
+			change_class = "undone"
+		}
+
 		return 	$('<div>', {class: 'col m6 s12'}).append(
 					$('<ul>', {class: 'collapsible'}).attr('data-collapsible','accordion').append(
 						$('<li>').append(
@@ -25,11 +31,11 @@ var Task = (function(){
 						).append(
 						$('<div/>', {class: 'collapsible-body'}).append($('<p>').html('Fecha de culminacion:'+ ' ' + this.date
 						 + '<br>' + 'Status:' + ' ' + this.status)).append(
-							$('<a>', {class: 'waves-effect waves-light btn btn-edit right'}).html('Editar').append(
+							$('<a>', {id:this.id, class: 'waves-effect waves-light btn btn-edit right '+ change_class +''}).attr('data-status', this.status).html('Editar').append(
 								$('<i>', {class: 'mdi-editor-border-color left'})
 							)
 						).append(
-							$('<a>', {class: 'waves-effect waves-light btn btn-delete right'}).html('Borrar').append(
+							$('<a>', { id:this.id, class: 'waves-effect waves-light btn btn-delete right'}).html('Borrar').append(
 								$('<i>', {class: 'mdi-action-delete left'})
 							)
 						)
@@ -48,31 +54,32 @@ var Task = (function(){
 
 
 	Task.prototype.deleteTask = function(){
-		$.ajax({
-			type: 'delete',
-			url: 'http://localhost:3000/task'+this.id,
-			success: function(data){
-				console.log("Tarea eliminada"+data.id);
-				tasks = new Task();
-			},
-			error: function(){
-				console.log('Ha ocurrido un error al eliminar la tarea.')
-			}
-		});
+      	$.ajax({
+		type: 'post',
+		data: {_method: 'delete'},
+        url: 'http://localhost:3000/tasks/'+this.id,
+        success: function(data){
+        Materialize.toast('Tarea borrada', 3000)
+        },
+        error: function(){
+          console.log('Ha ocurrido un error al eliminar la tarea.')
+        }
+      });
 	}
 
 	Task.prototype.updateTaskStatus = function(){
+		var status = {"status": this.status};
 		$.ajax({
-			type: 'patch',
-			url: 'http://localhost:3000//tasks/'+this.id+'/status',
-			success: function(data){
-				console.log("Status actualizado"+data.id);
-				tasks = new Task();
-			},
-			error: function(){
-				console.log('Ha ocurrido un error al actualizar el status.')
-			}
-		});
+        	type: 'patch',
+        	url: 'http://localhost:3000/tasks/'+this.id+'/status',
+        	data: status,
+        success: function(data){
+        	Materialize.toast('Tarea editada', 3000)
+        },
+        error: function(){
+          console.log('Ha ocurrido un error al actualizar el status.');
+        }
+      });
 	}
 
 	return Task;

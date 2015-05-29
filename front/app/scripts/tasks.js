@@ -26,6 +26,8 @@ var Tasks = (function(){
 				self.init(data);
 				self.draw();
 				self.dataReady();
+				self.dataDelete();
+				self.dataPut();
 			},
 
 			error: function(data){
@@ -40,6 +42,37 @@ var Tasks = (function(){
 	      accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
 	    });
 	}
+
+	Tasks.prototype.dataDelete = function(){
+		return  $('.btn-delete').click(function(){    
+			var dataId = {"id": this.id};
+			task = new Task(null, dataId)
+			task.deleteTask()
+		})
+	};
+
+	Tasks.prototype.dataPut = function(){
+		$('.btn-edit').click(function(){  
+		var task_status = $(this).attr("data-status");
+		
+                if ($(this).hasClass('undone')) {
+                    $(this).removeClass('undone').addClass('done')
+                    $(this).attr("data-status", "Done");
+
+                } else if ($(this).hasClass('done')) {
+                    $(this).removeClass('done').addClass('undone')
+                    $(this).attr("data-status", "Undone");
+                };
+
+
+            var data = {"id": this.id ,"status": $(this).attr("data-status")};
+            task = new Task(null, data)
+			task.updateTaskStatus()
+
+			console.log(task_status)
+
+		})
+	};
 
 
 	Tasks.prototype.draw = function(){
